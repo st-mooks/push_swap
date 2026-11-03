@@ -15,9 +15,9 @@
 
 int	main(int argc, char *argv[])
 {
-	t_stack	*a;
-	t_stack	*b;
-	size_t	len;
+	t_stack		*a;
+	t_stack		*b;
+	size_t		len;
 
 	len = get_input_stack_len(argc, argv);
 	a = stack_init(argv, len);
