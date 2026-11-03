@@ -69,34 +69,34 @@ void		reverse_rotate(t_stack **stack);
 //ops_utils.c
 t_ops_list	*init_ops_list(void);
 t_ops_count	*init_ops_count(void);
-void    	add_op_to_list(t_ops_list **ops_list, char *op_name);
-void    	print_ops(t_ops_list *ops_list);
+void		add_op_to_list(t_ops_list **ops_list, char *op_name);
+void		print_ops(t_ops_list *ops_list);
 //valid operations:
 //	a_ops.c
 void		sa(t_stack **a,
-            	t_ops_list **ops_list, t_ops_count **ops_count);
+				t_ops_list **ops_list, t_ops_count **ops_count);
 void		pa(t_stack **a, t_stack**b,
-            	t_ops_list **ops_list, t_ops_count **ops_count);
+				t_ops_list **ops_list, t_ops_count **ops_count);
 void		ra(t_stack **a,
-            	t_ops_list **ops_list, t_ops_count **ops_count);
+				t_ops_list **ops_list, t_ops_count **ops_count);
 void		rra(t_stack **a,
-            	t_ops_list **ops_list, t_ops_count **ops_count);
+				t_ops_list **ops_list, t_ops_count **ops_count);
 //	b_ops.c
 void		sb(t_stack **b,
-            	t_ops_list **ops_list, t_ops_count **ops_count);
+				t_ops_list **ops_list, t_ops_count **ops_count);
 void		pb(t_stack **a, t_stack**b,
-            	t_ops_list **ops_list, t_ops_count **ops_count);
+				t_ops_list **ops_list, t_ops_count **ops_count);
 void		rb(t_stack **b,
-            	t_ops_list **ops_list, t_ops_count **ops_count);
+				t_ops_list **ops_list, t_ops_count **ops_count);
 void		rrb(t_stack **b,
-            	t_ops_list **ops_list, t_ops_count **ops_count);
+				t_ops_list **ops_list, t_ops_count **ops_count);
 //	ab_ops.c
 void		ss(t_stack **a, t_stack **b,
-            	t_ops_list **ops_list, t_ops_count **ops_count);
+				t_ops_list **ops_list, t_ops_count **ops_count);
 void		rr(t_stack **a, t_stack **b,
-            	t_ops_list **ops_list, t_ops_count **ops_count);
+				t_ops_list **ops_list, t_ops_count **ops_count);
 void		rrr(t_stack **a, t_stack **b,
-            	t_ops_list **ops_list, t_ops_count **ops_count);
+				t_ops_list **ops_list, t_ops_count **ops_count);
 //simple.c
 void		simple(t_stack **a, t_stack **b, size_t len);
 #endif

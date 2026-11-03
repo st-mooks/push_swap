@@ -1,19 +1,19 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   simple.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/03 18:20:40 by mbadarin          #+#    #+#             */
-/*   Updated: 2026/11/03 18:22:05 by mbadarin         ###   ########.fr       */
-/*                                                                            */
+/*																			  */
+/*														  :::	   ::::::::   */
+/*	 simple.c											:+:		 :+:	:+:   */
+/*													  +:+ +:+		  +:+	  */
+/*	 By: mbadarin <mbadarin@student.42amman.com>	+#+  +:+	   +#+		  */
+/*												  +#+#+#+#+#+	+#+			  */
+/*	 Created: 2026/11/03 18:20:40 by mbadarin		   #+#	  #+#			  */
+/*	 Updated: 2026/11/03 18:22:05 by mbadarin		  ###	########.fr		  */
+/*																			  */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	check_a(t_stack **a, t_stack **b,
-            t_ops_list **ops_list, t_ops_count **ops_count)
+			t_ops_list **ops_list, t_ops_count **ops_count)
 {
 	if ((*a)->value > (*a)->next->value)
 		sa(a, ops_list, ops_count);
@@ -21,7 +21,7 @@ void	check_a(t_stack **a, t_stack **b,
 }
 
 void	sort_b(t_stack **b, size_t b_len,
-            t_ops_list **ops_list, t_ops_count **ops_count)
+			t_ops_list **ops_list, t_ops_count **ops_count)
 {
 	int	rotations;
 
@@ -42,13 +42,13 @@ void	sort_b(t_stack **b, size_t b_len,
 
 void	simple(t_stack **a, t_stack **b, size_t len)
 {
-	int	        i;
-	int	        b_len;
-    t_ops_list  *ops_list;
-    t_ops_count *ops_count;
+	int			i;
+	int			b_len;
+	t_ops_list	*ops_list;
+	t_ops_count	*ops_count;
 
-    ops_list = init_ops_list();
-    ops_count = init_ops_count();
+	ops_list = init_ops_list();
+	ops_count = init_ops_count();
 	i = 0;
 	while (i + 1 < len)
 	{
@@ -59,5 +59,5 @@ void	simple(t_stack **a, t_stack **b, size_t len)
 	}
 	while (i-- > 0)
 		pa(a, b, &ops_list, &ops_count);
-    print_ops(ops_list);
+	print_ops(ops_list);
 }
