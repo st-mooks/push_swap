@@ -18,7 +18,7 @@ t_stack	*stack_new(int n)
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
-		return (NULL);
+		raise_error();
 	new->value = n;
 	new->next = NULL;
 	return (new);
@@ -27,7 +27,7 @@ t_stack	*stack_new(int n)
 t_stack	*stack_penultimate(t_stack *stack)
 {
 	if (!stack)
-		return (NULL);
+		raise_error();
 	while (stack->next->next)
 		stack = stack->next;
 	return (stack);
@@ -36,7 +36,7 @@ t_stack	*stack_penultimate(t_stack *stack)
 t_stack	*stack_last(t_stack *stack)
 {
 	if (!stack)
-		return (NULL);
+		raise_error();
 	while (stack->next)
 		stack = stack->next;
 	return (stack);
