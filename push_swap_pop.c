@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*																			  */
+/*														  :::	   ::::::::   */
+/*	 push_swap_pop.c									:+:		 :+:	:+:   */
+/*													  +:+ +:+		  +:+	  */
+/*	 By: mbadarin <mbadarin@student.42amman.com>	+#+  +:+	   +#+		  */
+/*												  +#+#+#+#+#+	+#+			  */
+/*	 Created: 2026/11/03 13:46:07 by mbadarin		   #+#	  #+#			  */
+/*	 Updated: 2026/11/03 13:46:07 by mbadarin		  ###	########.fr		  */
+/*																			  */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push(t_stack **stack, int n)
@@ -7,7 +19,7 @@ void	push(t_stack **stack, int n)
 	if (!stack)
 		return ;
 	temp = *stack;
-	*stack = stcknew(n);
+	*stack = stack_new(n);
 	(*stack)->next = temp;
 }
 
@@ -30,7 +42,7 @@ void	push_to_stack(t_stack **dest, t_stack **src)
 	if (!dest || !src || !*src)
 		return ;
 	if (!*dest)
-		*dest = stcknew((*src)->value);
+		*dest = stack_new((*src)->value);
 	else
 		push(dest, (*src)->value);
 	pop(src);
