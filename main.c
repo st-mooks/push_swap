@@ -17,16 +17,15 @@ int	main(int argc, char *argv[])
 {
 	t_stack	*a;
 	t_stack	*b;
+	size_t	len;
 
-	a = stack_init(argc, argv);
+	len = get_input_stack_len(argc, argv);
+	a = stack_init(argv, len);
 	b = NULL;
-	printf("first: %d, ", a->value);
-	printf("next: %d, ", a->next->value);
-	printf("last: %d\n", stack_last(a)->value);
-	pb(&a, &b);
-	printf("A\nnew first: %d, ", a->value);
-	printf("next: %d, ", a->next->value);
-	printf("last: %d\n", stack_last(a)->value);
-	printf("B\nnew first: %d, ", b->value);
-	printf("last: %d\n", stack_last(b)->value);
+	simple(&a, &b, len);
+	while (a)
+	{
+		printf("%d ", a->value);
+		a = a->next;
+	}
 }

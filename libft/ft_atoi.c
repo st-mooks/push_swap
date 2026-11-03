@@ -30,7 +30,6 @@ int	ft_atoi(const char *nptr)
 
 	sum = 0;
 	sign = 1;
-
 	while (ft_isspace(*nptr))
 		nptr++;
 	if (*nptr == '-' || *nptr == '+')

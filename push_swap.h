@@ -34,7 +34,8 @@ int		is_option(char *str);
 t_stack	*stack_new(int n);
 t_stack	*stack_penultimate(t_stack *stack);
 t_stack	*stack_last(t_stack *stack);
-t_stack	*stack_init(int len, char *values[]);
+size_t	get_input_stack_len(int argc, char *argv[]);
+t_stack	*stack_init(char *values[], size_t len);
 //push_swap_pop.c
 void	push(t_stack **stack, int n);
 void	pop(t_stack **stack);
@@ -58,4 +59,6 @@ void	rrb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 void	rr(t_stack **a, t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
+//simple.c
+void	simple(t_stack **a, t_stack **b, size_t len);
 #endif

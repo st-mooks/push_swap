@@ -42,23 +42,29 @@ t_stack	*stack_last(t_stack *stack)
 	return (stack);
 }
 
-t_stack	*stack_init(int len, char *values[])
+size_t	get_input_stack_len(int argc, char *argv[])
+{
+	size_t	len;
+
+	if (argc <= 0)
+		return (0);
+	len = (size_t)argc - 1;
+	while (--argc > 0)
+		if (is_option(argv[argc]))
+			len--;
+	return (len);
+}
+
+t_stack	*stack_init(char *values[], size_t len)
 {
 	int		value;
 	t_stack	*stack;
 
-	value = ft_atoi(values[--len]);
+	value = ft_atoi(values[len]);
 	validate_int(value, values[len--]);
 	stack = stack_new(value);
-	if (!stack)
-		return (NULL);
 	while (len > 0)
 	{
-		if (is_option(values[len]))
-		{
-			len--;
-			continue ;
-		}
 		value = ft_atoi(values[len]);
 		validate_int(value, values[len--]);
 		check_duplicate(value, stack);
