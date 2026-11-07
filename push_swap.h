@@ -21,6 +21,7 @@
 typedef struct s_stack
 {
 	int				value;
+	int				index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -99,4 +100,7 @@ void		rrr(t_stack **a, t_stack **b,
 				t_ops_list **ops_list, t_ops_count **ops_count);
 //simple.c
 void		simple(t_stack **a, t_stack **b, size_t len);
+
+//complex.c
+void		assign_index(t_stack *stack);
 #endif
