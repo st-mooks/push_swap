@@ -44,7 +44,7 @@ void	select_print(t_stack *a, int mode, int bench_output, double disorder)
 		ops = simple(&a);
 		strategy = add_to_str(strategy, "O(n2)");
 	}
-	else if (mode == 2|| (!mode && 0.2 <= disorder && disorder < 0.5))
+	else if (mode == 2 || (!mode && 0.2 <= disorder && disorder < 0.5))
 	{
 		//ops = medium(&a);
 		ops = simple(&a);

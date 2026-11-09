@@ -38,34 +38,42 @@ void	check_duplicate(int value, t_stack *stack)
 	}
 }
 
-int	get_option(int argc, char *argv[])
+void	check_duplicate_options(int argc, char *argv[])
 {
 	int		count;
-	int		option;
 	char	*str;
 
 	count = 0;
+	while (--argc > 0)
+	{
+		str = argv[argc--];
+		if (!ft_strncmp(str, "--simple", ft_strlen("--simple") + 1)
+			|| !ft_strncmp(str, "--medium", ft_strlen("--medium") + 1)
+			|| !ft_strncmp(str, "--complex", ft_strlen("--complex") + 1)
+			|| !ft_strncmp(str, "--adaptive", ft_strlen("--adaptive") + 1)
+			|| !ft_strncmp(str, "--bench", ft_strlen("--bench") + 1))
+			count++;
+	}
+	if (count > 1)
+		raise_error();
+}
+
+int	get_option(int argc, char *argv[])
+{
+	int		option;
+	char	*str;
+
+	check_duplicate_options(argc, argv);
 	option = 0;
 	while (--argc > 0)
 	{
 		str = argv[argc];
 		if (!ft_strncmp(str, "--simple", ft_strlen("--simple") + 1))
-		{
 			option = 1;
-			count++;
-		}
 		if (!ft_strncmp(str, "--medium", ft_strlen("--medium") + 1))
-		{
 			option = 2;
-			count++;
-		}
 		if (!ft_strncmp(str, "--complex", ft_strlen("--complex") + 1))
-		{
-			option = 3;
 			count++;
-		}
 	}
-	if (count > 1)
-		raise_error();
 	return (option);
 }
