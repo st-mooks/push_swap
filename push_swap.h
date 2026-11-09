@@ -69,11 +69,10 @@ void		reverse_rotate(t_stack **stack);
 //ops_utils.c
 t_ops_list	*init_ops_list(void);
 t_ops		*init_ops(void);
+t_ops		*get_ops(t_stack *a, int mode, int bench_output, double disorder);
 void		add_op_to_list(t_ops **ops, char *op_name);
 void		print_ops(t_ops_list *ops_list);
 //benchmark.c
-void		print_bench(t_ops *ops, int bench_output,
-				char *strategy, double disorder);
 int			get_bench_output(int argc, char *argv[]);
 //valid operations:
 //	a_ops.c
@@ -99,5 +98,7 @@ double		compute_disorder(t_stack *a);
 //print_utils.c
 void		print_ops_bench(t_ops *ops, int bench_output);
 void		print_bench(t_ops *ops, int bench_output,
-				char *strategy, double disorder);
+				int mode, double disorder);
+char		*get_option_str(int mode);
+char		*get_strategy(int mode, double disorder);
 #endif

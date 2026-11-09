@@ -46,12 +46,11 @@ void	check_duplicate_options(int argc, char *argv[])
 	count = 0;
 	while (--argc > 0)
 	{
-		str = argv[argc--];
+		str = argv[argc];
 		if (!ft_strncmp(str, "--simple", ft_strlen("--simple") + 1)
 			|| !ft_strncmp(str, "--medium", ft_strlen("--medium") + 1)
 			|| !ft_strncmp(str, "--complex", ft_strlen("--complex") + 1)
-			|| !ft_strncmp(str, "--adaptive", ft_strlen("--adaptive") + 1)
-			|| !ft_strncmp(str, "--bench", ft_strlen("--bench") + 1))
+			|| !ft_strncmp(str, "--adaptive", ft_strlen("--adaptive") + 1))
 			count++;
 	}
 	if (count > 1)
@@ -73,7 +72,7 @@ int	get_option(int argc, char *argv[])
 		if (!ft_strncmp(str, "--medium", ft_strlen("--medium") + 1))
 			option = 2;
 		if (!ft_strncmp(str, "--complex", ft_strlen("--complex") + 1))
-			count++;
+			option = 3;
 	}
 	return (option);
 }

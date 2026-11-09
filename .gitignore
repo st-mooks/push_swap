@@ -1,4 +1,5 @@
 #Revise after finalising build!
-main.c
 a.out
+push_swap
 bench.txt
+run_test.sh
