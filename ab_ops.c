@@ -12,32 +12,29 @@
 
 #include "push_swap.h"
 
-void	ss(t_stack **a, t_stack **b,
-			t_ops_list **ops_list, t_ops_count **ops_count)
+void	ss(t_stack **a, t_stack **b, t_ops **ops)
 {
-	sa(a, ops_list, ops_count);
-	sb(b, ops_list, ops_count);
-	add_op_to_list(ops_list, "ss");
-	(*ops_count)->ss += 1;
-	(*ops_count)->total += 1;
+	sa(a, ops);
+	sb(b, ops);
+	add_op_to_list(ops, "ss");
+	(*ops)->ss_count += 1;
+	(*ops)->total += 1;
 }
 
-void	rr(t_stack **a, t_stack **b,
-			t_ops_list **ops_list, t_ops_count **ops_count)
+void	rr(t_stack **a, t_stack **b, t_ops **ops)
 {
 	rotate(a);
 	rotate(b);
-	add_op_to_list(ops_list, "rr");
-	(*ops_count)->rr += 1;
-	(*ops_count)->total += 1;
+	add_op_to_list(ops, "rr");
+	(*ops)->rr_count += 1;
+	(*ops)->total += 1;
 }
 
-void	rrr(t_stack **a, t_stack **b,
-			t_ops_list **ops_list, t_ops_count **ops_count)
+void	rrr(t_stack **a, t_stack **b, t_ops **ops)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	add_op_to_list(ops_list, "rrr");
-	(*ops_count)->rrr += 1;
-	(*ops_count)->total += 1;
+	add_op_to_list(ops, "rrr");
+	(*ops)->rrr_count += 1;
+	(*ops)->total += 1;
 }

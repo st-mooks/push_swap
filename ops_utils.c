@@ -24,44 +24,45 @@ t_ops_list	*init_ops_list(void)
 	return (ops_list);
 }
 
-t_ops_count	*init_ops_count(void)
+t_ops	*init_ops(void)
 {
-	t_ops_count	*ops_count;
+	t_ops	*ops;
 
-	ops_count = malloc(sizeof(t_ops_count));
-	if (!ops_count)
+	ops = malloc(sizeof(t_ops));
+	if (!ops)
 		raise_error();
-	ops_count->sa = 0;
-	ops_count->sb = 0;
-	ops_count->ss = 0;
-	ops_count->pa = 0;
-	ops_count->pb = 0;
-	ops_count->ra = 0;
-	ops_count->rb = 0;
-	ops_count->rr = 0;
-	ops_count->rra = 0;
-	ops_count->rrb = 0;
-	ops_count->rrr = 0;
-	return (ops_count);
+	ops->ops_list = init_ops_list();
+	ops->sa_count = 0;
+	ops->sb_count = 0;
+	ops->ss_count = 0;
+	ops->pa_count = 0;
+	ops->pb_count = 0;
+	ops->ra_count = 0;
+	ops->rb_count = 0;
+	ops->rr_count = 0;
+	ops->rra_count = 0;
+	ops->rrb_count = 0;
+	ops->rrr_count = 0;
+	return (ops);
 }
 
-void	add_op_to_list(t_ops_list **ops_list, char *op_name)
+void	add_op_to_list(t_ops **ops, char *op_name)
 {
 	t_ops_list	*new_op;
 	t_ops_list	*last;
 
-	if (!ops_list)
+	if (!ops)
 		raise_error();
 	new_op = malloc(sizeof(t_ops_list));
 	if (!new_op)
 		raise_error();
-	if (!(*ops_list)->op)
+	if (!(*ops)->ops_list->op)
 	{
-		(*ops_list)->op = ft_strdup(op_name);
+		(*ops)->ops_list->op = ft_strdup(op_name);
 		return ;
 	}
 	new_op->op = ft_strdup(op_name);
-	last = (*ops_list);
+	last = ((*ops)->ops_list);
 	while (last->next)
 		last = last->next;
 	last->next = new_op;

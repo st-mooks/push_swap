@@ -12,54 +12,52 @@
 
 #include "push_swap.h"
 
-void	check_a(t_stack **a, t_stack **b,
-			t_ops_list **ops_list, t_ops_count **ops_count)
+void	check_a(t_stack **a, t_stack **b, t_ops **ops)
 {
 	if ((*a)->value > (*a)->next->value)
-		sa(a, ops_list, ops_count);
-	pb(a, b, ops_list, ops_count);
+		sa(a, ops);
+	pb(a, b, ops);
 }
 
-void	sort_b(t_stack **b, size_t b_len,
-			t_ops_list **ops_list, t_ops_count **ops_count)
+void	sort_b(t_stack **b, size_t b_len, t_ops **ops)
 {
 	int	rotations;
 
 	rotations = 0;
 	while (b_len > 0 && (*b)->value < (*b)->next->value)
 	{
-		sb(b, ops_list, ops_count);
-		rrb(b, ops_list, ops_count);
+		sb(b, ops);
+		rrb(b, ops);
 		b_len--;
 		rotations++;
 	}
 	while (rotations > 0)
 	{
-		rb(b, ops_list, ops_count);
+		rb(b, ops);
 		rotations--;
 	}
 }
 
-void	simple(t_stack **a, size_t len)
+t_ops	*simple(t_stack **a)
 {
-	int			i;
-	int			b_len;
-	t_stack		*b;
-	t_ops_list	*ops_list;
-	t_ops_count	*ops_count;
+	int				i;
+	int				b_len;
+	unsigned int	len;
+	t_stack			*b;
+	t_ops			*ops;
 
-	ops_list = init_ops_list();
-	ops_count = init_ops_count();
+	len = ft_lstsize((t_list *)*a);
+	ops = init_ops();
 	b = NULL;
 	i = 0;
 	while (i + 1 < len)
 	{
-		check_a(a, &b, &ops_list, &ops_count);
+		check_a(a, &b, &ops);
 		i++;
 		b_len = i - 1;
-		sort_b(&b, b_len, &ops_list, &ops_count);
+		sort_b(&b, b_len, &ops);
 	}
 	while (i-- > 0)
-		pa(a, &b, &ops_list, &ops_count);
-	print_ops(ops_list);
+		pa(a, &b, &ops);
+	return (ops);
 }

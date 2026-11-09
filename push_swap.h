@@ -30,21 +30,22 @@ typedef struct s_ops_list
 	struct s_ops_list	*next;
 }	t_ops_list;
 
-typedef struct s_ops_count
+typedef struct s_ops
 {
-	int		sa;
-	int		sb;
-	int		ss;
-	int		pa;
-	int		pb;
-	int		ra;
-	int		rb;
-	int		rr;
-	int		rra;
-	int		rrb;
-	int		rrr;
-	int		total;
-}	t_ops_count;
+	t_ops_list	*ops_list;
+	int			sa_count;
+	int			sb_count;
+	int			ss_count;
+	int			pa_count;
+	int			pb_count;
+	int			ra_count;
+	int			rb_count;
+	int			rr_count;
+	int			rra_count;
+	int			rrb_count;
+	int			rrr_count;
+	int			total;
+}	t_ops;
 
 //valication.c
 void		validate_int(int value, char *values);
@@ -56,7 +57,7 @@ t_stack		*stack_new(int n);
 t_stack		*stack_penultimate(t_stack *stack);
 t_stack		*stack_last(t_stack *stack);
 size_t		get_input_stack_len(int argc, char *argv[]);
-t_stack		*stack_init(size_t len, int argc, char *argv[]);
+t_stack		*stack_init(int argc, char *argv[]);
 //push_swap_pop.c
 void		push(t_stack **stack, int n);
 void		pop(t_stack **stack);
@@ -67,39 +68,26 @@ void		rotate(t_stack **stack);
 void		reverse_rotate(t_stack **stack);
 //ops_utils.c
 t_ops_list	*init_ops_list(void);
-t_ops_count	*init_ops_count(void);
-void		add_op_to_list(t_ops_list **ops_list, char *op_name);
+t_ops		*init_ops(void);
+void		add_op_to_list(t_ops **ops, char *op_name);
 void		print_ops(t_ops_list *ops_list);
 //valid operations:
 //	a_ops.c
-void		sa(t_stack **a,
-				t_ops_list **ops_list, t_ops_count **ops_count);
-void		pa(t_stack **a, t_stack**b,
-				t_ops_list **ops_list, t_ops_count **ops_count);
-void		ra(t_stack **a,
-				t_ops_list **ops_list, t_ops_count **ops_count);
-void		rra(t_stack **a,
-				t_ops_list **ops_list, t_ops_count **ops_count);
+void		sa(t_stack **a, t_ops **ops);
+void		pa(t_stack **a, t_stack**b, t_ops **ops);
+void		ra(t_stack **a, t_ops **ops);
+void		rra(t_stack **a, t_ops **ops);
 //	b_ops.c
-void		sb(t_stack **b,
-				t_ops_list **ops_list, t_ops_count **ops_count);
-void		pb(t_stack **a, t_stack**b,
-				t_ops_list **ops_list, t_ops_count **ops_count);
-void		rb(t_stack **b,
-				t_ops_list **ops_list, t_ops_count **ops_count);
-void		rrb(t_stack **b,
-				t_ops_list **ops_list, t_ops_count **ops_count);
+void		sb(t_stack **b, t_ops **ops);
+void		pb(t_stack **a, t_stack**b, t_ops **ops);
+void		rb(t_stack **b, t_ops **ops);
+void		rrb(t_stack **b, t_ops **ops);
 //	ab_ops.c
-void		ss(t_stack **a, t_stack **b,
-				t_ops_list **ops_list, t_ops_count **ops_count);
-void		rr(t_stack **a, t_stack **b,
-				t_ops_list **ops_list, t_ops_count **ops_count);
-void		rrr(t_stack **a, t_stack **b,
-				t_ops_list **ops_list, t_ops_count **ops_count);
+void		ss(t_stack **a, t_stack **b, t_ops **ops);
+void		rr(t_stack **a, t_stack **b, t_ops **ops);
+void		rrr(t_stack **a, t_stack **b, t_ops **ops);
 //simple.c
-void		simple(t_stack **a, size_t len);
-void		sort_b(t_stack **b, size_t b_len,
-				t_ops_list **ops_list, t_ops_count **ops_count);
-void		check_a(t_stack **a, t_stack **b,
-				t_ops_list **ops_list, t_ops_count **ops_count);
+t_ops		*simple(t_stack **a);
+void		sort_b(t_stack **b, size_t b_len, t_ops **ops);
+void		check_a(t_stack **a, t_stack **b, t_ops **ops);
 #endif

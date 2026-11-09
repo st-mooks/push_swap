@@ -62,22 +62,24 @@ size_t	get_input_stack_len(int argc, char *argv[])
 	return (len);
 }
 
-t_stack	*stack_init(size_t len, int argc, char *argv[])
+t_stack	*stack_init(int argc, char *argv[])
 {
 	int		value;
 	t_stack	*stack;
+	int		i;
+	size_t	len;
 
-	value = ft_atoi(argv[--argc]);
-	validate_int(value, argv[argc--]);
+	i = argc - 1;
+	len = get_input_stack_len(argc, argv);
+	value = ft_atoi(argv[i]);
+	validate_int(value, argv[i--]);
 	stack = stack_new(value);
-	len--;
-	while (len > 0)
+	while (i >= (int)argc - len)
 	{
-		value = ft_atoi(argv[argc]);
-		validate_int(value, argv[argc--]);
+		value = ft_atoi(argv[i]);
+		validate_int(value, argv[i--]);
 		check_duplicate(value, stack);
 		push(&stack, value);
-		len--;
 	}
 	return (stack);
 }
