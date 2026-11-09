@@ -69,7 +69,7 @@ void	add_op_to_list(t_ops_list **ops_list, char *op_name)
 
 void	print_ops(t_ops_list *ops_list)
 {
-	while (ops_list)
+	while (ops_list && ops_list->op)
 	{
 		write(1, ops_list->op, ft_strlen(ops_list->op));
 		write(1, "\n", 1);

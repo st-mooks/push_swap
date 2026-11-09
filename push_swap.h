@@ -50,14 +50,13 @@ typedef struct s_ops_count
 void		validate_int(int value, char *values);
 void		check_duplicate(int value, t_stack *stack);
 void		raise_error(void);
-size_t		count_digits(int value);
-int			is_option(char *str);
+char		*get_option(int argc, char *argv[]);
 //list_functions.c
 t_stack		*stack_new(int n);
 t_stack		*stack_penultimate(t_stack *stack);
 t_stack		*stack_last(t_stack *stack);
 size_t		get_input_stack_len(int argc, char *argv[]);
-t_stack		*stack_init(char *values[], size_t len);
+t_stack		*stack_init(size_t len, int argc, char *argv[]);
 //push_swap_pop.c
 void		push(t_stack **stack, int n);
 void		pop(t_stack **stack);
@@ -98,5 +97,9 @@ void		rr(t_stack **a, t_stack **b,
 void		rrr(t_stack **a, t_stack **b,
 				t_ops_list **ops_list, t_ops_count **ops_count);
 //simple.c
-void		simple(t_stack **a, t_stack **b, size_t len);
+void		simple(t_stack **a, size_t len);
+void		sort_b(t_stack **b, size_t b_len,
+				t_ops_list **ops_list, t_ops_count **ops_count);
+void		check_a(t_stack **a, t_stack **b,
+				t_ops_list **ops_list, t_ops_count **ops_count);
 #endif

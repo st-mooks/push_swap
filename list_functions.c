@@ -45,30 +45,39 @@ t_stack	*stack_last(t_stack *stack)
 size_t	get_input_stack_len(int argc, char *argv[])
 {
 	size_t	len;
+	int		i;
 
-	if (argc <= 0)
-		return (0);
-	len = (size_t)argc - 1;
-	while (--argc > 0)
-		if (is_option(argv[argc]))
+	if (argc <= 1)
+		raise_error();
+	i = argc - 1;
+	len = i;
+	while (i > 0)
+	{
+		if (!ft_strncmp(argv[i], "--bench", ft_strlen("--bench") + 1))
 			len--;
+		i--;
+	}
+	if (get_option(argc, argv))
+		len--;
 	return (len);
 }
 
-t_stack	*stack_init(char *values[], size_t len)
+t_stack	*stack_init(size_t len, int argc, char *argv[])
 {
 	int		value;
 	t_stack	*stack;
 
-	value = ft_atoi(values[len]);
-	validate_int(value, values[len--]);
+	value = ft_atoi(argv[--argc]);
+	validate_int(value, argv[argc--]);
 	stack = stack_new(value);
+	len--;
 	while (len > 0)
 	{
-		value = ft_atoi(values[len]);
-		validate_int(value, values[len--]);
+		value = ft_atoi(argv[argc]);
+		validate_int(value, argv[argc--]);
 		check_duplicate(value, stack);
 		push(&stack, value);
+		len--;
 	}
 	return (stack);
 }
