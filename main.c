@@ -44,18 +44,21 @@ void	select_print(t_stack *a, int mode, int bench_output, double disorder)
 		ops = simple(&a);
 		strategy = add_to_str(strategy, "O(n2)");
 	}
-	/* else if (mode == 2|| (!mode && 0.2 <= disorder && disorder < 0.5))
+	else if (mode == 2|| (!mode && 0.2 <= disorder && disorder < 0.5))
 	{
-		ops = medium(&a, len);
+		//ops = medium(&a);
+		ops = simple(&a);
 		strategy = add_to_str(strategy, "O(n√n)");
 	}
 	else
 	{
-		ops = complex(&a, len);
+		//ops = complex(&a);
+		ops = simple(&a);
 		strategy = add_to_str(strategy, "O(nlog(n))");
-	}*/
-	print_bench(ops, bench_output, strategy);
-	print_ops(ops->ops_list);
+	}
+	print_bench(ops, bench_output, strategy, disorder);
+	if (bench_output != 1)
+		print_ops(ops->ops_list);
 	free(ops);
 	free(strategy);
 }
@@ -66,12 +69,11 @@ int	main(int argc, char *argv[])
 	int		mode;
 	int		bench_output;
 	double	disorder;
-
-	disorder = 0.10;
+	
+	a = stack_init(argc, argv);
 	mode = get_option(argc, argv);
 	bench_output = get_bench_output(argc, argv);
-	printf("\n*****%d*****\n", bench_output);
-	a = stack_init(argc, argv);
+	disorder = compute_disorder(a);
 	select_print(a, mode, bench_output, disorder);
 	free(a);
 }

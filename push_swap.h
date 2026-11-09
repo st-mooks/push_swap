@@ -72,7 +72,8 @@ t_ops		*init_ops(void);
 void		add_op_to_list(t_ops **ops, char *op_name);
 void		print_ops(t_ops_list *ops_list);
 //benchmark.c
-void    	print_bench(t_ops *ops, int bench_output, char *strategy);
+void    	print_bench(t_ops *ops, int bench_output,
+				char *strategy, double disorder);
 int 		get_bench_output(int argc, char *argv[]);
 //valid operations:
 //	a_ops.c
@@ -93,4 +94,10 @@ void		rrr(t_stack **a, t_stack **b, t_ops **ops);
 t_ops		*simple(t_stack **a);
 void		sort_b(t_stack **b, size_t b_len, t_ops **ops);
 void		check_a(t_stack **a, t_stack **b, t_ops **ops);
+//disorder.c
+double		compute_disorder(t_stack *a);
+//print_utils.c
+void    	print_ops_bench(t_ops *ops, int bench_output);
+void		print_bench(t_ops *ops, int bench_output,
+				char *strategy, double disorder);
 #endif

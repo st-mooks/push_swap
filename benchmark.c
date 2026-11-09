@@ -22,11 +22,3 @@ int get_bench_output(int argc, char *argv[])
     return (2);
 }
 
-void    print_bench(t_ops *ops, int bench_output, char *strategy)
-{
-    ft_putstr_fd("[bench] disorder:\t", bench_output);
-    ft_putstr_fd("0.00%\n[bench] strategy:\t", bench_output);
-    ft_putstr_fd(strategy, bench_output);
-    ft_putstr_fd("\n[bench] total_ops:\t", bench_output);
-    ft_putnbr_fd(ops->total, bench_output);
-}
