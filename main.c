@@ -11,29 +11,67 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "./libft/libft.h"
 #include <stdio.h>
+
+void	init_options(char *options[])
+{
+	options[0] = "Adaptive";
+	options[1] = "Simple";
+	options[2] = "Medium";
+	options[3] = "Complex";
+}
+
+char	*add_to_str(char *old, char *new)
+{
+	char	*temp;
+
+	temp = old;
+	old = ft_strjoin(old, new);
+	free(temp);
+	return (old);
+}
+
+void	select_print(t_stack *a, int mode, int bench_output, double disorder)
+{
+	char	*options[4];
+	char	*strategy;
+	t_ops	*ops;
+
+	init_options(options);
+	strategy = ft_strjoin(options[mode], " / ");
+	if (mode == 1 || (!mode && disorder < 0.2))
+	{
+		ops = simple(&a);
+		strategy = add_to_str(strategy, "O(n2)");
+	}
+	/* else if (mode == 2|| (!mode && 0.2 <= disorder && disorder < 0.5))
+	{
+		ops = medium(&a, len);
+		strategy = add_to_str(strategy, "O(n√n)");
+	}
+	else
+	{
+		ops = complex(&a, len);
+		strategy = add_to_str(strategy, "O(nlog(n))");
+	}*/
+	print_bench(ops, bench_output, strategy);
+	print_ops(ops->ops_list);
+	free(ops);
+	free(strategy);
+}
 
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;
-	t_ops	*ops;
-	double	disorder;
-	char	*option;
+	int		mode;
 	int		bench_output;
+	double	disorder;
 
-	option = get_option(argc, argv);
-	//bench_output = get_bench_output(argc, argv);
-	a = stack_init(argc, argv);
 	disorder = 0.10;
-	if (!ft_strncmp(option, "--simple", ft_strlen("--simple"))
-			|| (!option && disorder < 0.2))
-		ops = simple(&a);
-	/* else if (!ft_strncmp(option, "--medium", ft_strlen("--medium"))
-			|| (!option && 0.2 <= disorder && disorder < 0.5))
-		medium(&a, len);
-	else
-		complex(&a, len); */
-	//print_bench(ops_list, ops_count, bench_output);
-	print_ops(ops->ops_list);
+	mode = get_option(argc, argv);
+	bench_output = get_bench_output(argc, argv);
+	printf("\n*****%d*****\n", bench_output);
+	a = stack_init(argc, argv);
+	select_print(a, mode, bench_output, disorder);
+	free(a);
 }

@@ -59,5 +59,6 @@ t_ops	*simple(t_stack **a)
 	}
 	while (i-- > 0)
 		pa(a, &b, &ops);
+	free(b);
 	return (ops);
 }

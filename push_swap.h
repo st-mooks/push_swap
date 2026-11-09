@@ -51,7 +51,7 @@ typedef struct s_ops
 void		validate_int(int value, char *values);
 void		check_duplicate(int value, t_stack *stack);
 void		raise_error(void);
-char		*get_option(int argc, char *argv[]);
+int			get_option(int argc, char *argv[]);
 //list_functions.c
 t_stack		*stack_new(int n);
 t_stack		*stack_penultimate(t_stack *stack);
@@ -71,6 +71,9 @@ t_ops_list	*init_ops_list(void);
 t_ops		*init_ops(void);
 void		add_op_to_list(t_ops **ops, char *op_name);
 void		print_ops(t_ops_list *ops_list);
+//benchmark.c
+void    	print_bench(t_ops *ops, int bench_output, char *strategy);
+int 		get_bench_output(int argc, char *argv[]);
 //valid operations:
 //	a_ops.c
 void		sa(t_stack **a, t_ops **ops);
