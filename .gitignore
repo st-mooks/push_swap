@@ -1,5 +1,3 @@
 #Revise after finalising build!
+test_results/
 a.out
-push_swap
-bench.txt
-run_test.sh

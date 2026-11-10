@@ -18,7 +18,7 @@ t_stack	*stack_new(int n)
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
-		raise_error();
+		return (NULL);
 	new->value = n;
 	new->next = NULL;
 	return (new);
@@ -27,7 +27,7 @@ t_stack	*stack_new(int n)
 t_stack	*stack_penultimate(t_stack *stack)
 {
 	if (!stack)
-		raise_error();
+		return (NULL);
 	while (stack->next->next)
 		stack = stack->next;
 	return (stack);
@@ -36,30 +36,36 @@ t_stack	*stack_penultimate(t_stack *stack)
 t_stack	*stack_last(t_stack *stack)
 {
 	if (!stack)
-		raise_error();
+		return (NULL);
 	while (stack->next)
 		stack = stack->next;
 	return (stack);
 }
 
-size_t	get_input_stack_len(int argc, char *argv[])
+void	free_all(t_stack *a, t_ops *ops)
 {
-	size_t	len;
-	int		i;
+	t_stack		*stack_next;
+	t_ops_list	*ops_next;
 
-	if (argc <= 1)
-		raise_error();
-	i = argc - 1;
-	len = i;
-	while (i > 0)
+	if (a)
 	{
-		if (!ft_strncmp(argv[i], "--bench", ft_strlen("--bench") + 1))
-			len--;
-		i--;
+		while (a)
+		{
+			stack_next = a->next;
+			free(a);
+			a = stack_next;
+		}
 	}
-	if (get_option(argc, argv))
-		len--;
-	return (len);
+	if (ops)
+	{
+		while (ops->ops_list)
+		{
+			ops_next = ops->ops_list->next;
+			free(ops->ops_list);
+			ops->ops_list = ops_next;
+		}
+		free(ops);
+	}
 }
 
 t_stack	*stack_init(int argc, char *argv[])
@@ -71,14 +77,16 @@ t_stack	*stack_init(int argc, char *argv[])
 
 	i = argc - 1;
 	len = get_input_stack_len(argc, argv);
-	value = ft_atoi(argv[i]);
-	validate_int(value, argv[i--]);
-	stack = stack_new(value);
-	while (i >= (int)argc - len)
+	stack = NULL;
+	while ((size_t)i >= argc - len)
 	{
 		value = ft_atoi(argv[i]);
-		validate_int(value, argv[i--]);
-		check_duplicate(value, stack);
+		if (!validate_int(argv[i--])
+			|| !check_duplicate(value, stack))
+		{
+			free_all(stack, NULL);
+			raise_error();
+		}
 		push(&stack, value);
 	}
 	return (stack);

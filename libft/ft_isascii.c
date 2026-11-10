@@ -6,7 +6,7 @@
 /*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 14:37:45 by mbadarin          #+#    #+#             */
-/*   Updated: 2026/10/11 12:41:27 by mbadarin         ###   ########.fr       */
+/*   Updated: 2026/11/10 09:57:16 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_isascii(int c)
 	unsigned char	ch;
 
 	ch = (unsigned char)c;
-	return (ch >= 0 && ch <= 127);
+	return (ch <= 127);
 }
 /*
 int	main(int argc, char *argv[])

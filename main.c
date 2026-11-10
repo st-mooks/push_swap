@@ -11,24 +11,22 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
-	t_stack	*a;
 	int		mode;
 	int		bench_output;
+	t_stack	*a;
 	double	disorder;
 	t_ops	*ops;
 
-	a = stack_init(argc, argv);
 	mode = get_option(argc, argv);
-	bench_output = get_bench_output(argc, argv);
+	bench_output = get_bench_output(argv);
+	a = stack_init(argc, argv);
 	disorder = compute_disorder(a);
-	ops = get_ops(a, mode, bench_output, disorder);
-	print_bench(ops, bench_output, mode, disorder);
+	ops = get_ops(&a, mode, disorder);
+	print_bench(*ops, bench_output, mode, disorder);
 	if (bench_output != 1)
 		print_ops(ops->ops_list);
-	free(a);
-	free(ops);
+	free_all(a, ops);
 }

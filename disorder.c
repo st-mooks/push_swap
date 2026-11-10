@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kalnajja <kalnajja@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 12:17:11 by kalnajja          #+#    #+#             */
-/*   Updated: 2026/11/09 16:35:48 by mbadarin         ###   ########.fr       */
+/*   Updated: 2026/11/10 15:31:29 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ double	compute_disorder(t_stack *a)
 			mistakes++;
 		a = a->next;
 	}
-	return ((double)mistakes / (double)pairs);
+	if (pairs == 0)
+		return (0);
+	return ((double)mistakes / pairs);
 }

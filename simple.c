@@ -40,13 +40,13 @@ void	sort_b(t_stack **b, size_t b_len, t_ops **ops)
 
 t_ops	*simple(t_stack **a)
 {
-	int				i;
-	int				b_len;
-	unsigned int	len;
-	t_stack			*b;
-	t_ops			*ops;
+	int		i;
+	int		b_len;
+	int		len;
+	t_stack	*b;
+	t_ops	*ops;
 
-	len = ft_lstsize((t_list *)*a);
+	len = (int)ft_lstsize((t_list *)*a);
 	ops = init_ops();
 	b = NULL;
 	i = 0;
@@ -59,6 +59,5 @@ t_ops	*simple(t_stack **a)
 	}
 	while (i-- > 0)
 		pa(a, &b, &ops);
-	free(b);
 	return (ops);
 }

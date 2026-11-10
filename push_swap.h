@@ -48,32 +48,33 @@ typedef struct s_ops
 }	t_ops;
 
 //valication.c
-void		validate_int(int value, char *values);
-void		check_duplicate(int value, t_stack *stack);
+int			validate_int(char *values);
+int			check_duplicate(int value, t_stack *stack);
 void		raise_error(void);
-int			get_option(int argc, char *argv[]);
 //list_functions.c
 t_stack		*stack_new(int n);
 t_stack		*stack_penultimate(t_stack *stack);
 t_stack		*stack_last(t_stack *stack);
-size_t		get_input_stack_len(int argc, char *argv[]);
+void		free_all(t_stack *a, t_ops *ops);
 t_stack		*stack_init(int argc, char *argv[]);
 //push_swap_pop.c
 void		push(t_stack **stack, int n);
-void		pop(t_stack **stack);
 void		push_to_stack(t_stack **dest, t_stack **src);
 void		swap(t_stack **stack);
 //rotate.c
 void		rotate(t_stack **stack);
 void		reverse_rotate(t_stack **stack);
 //ops_utils.c
-t_ops_list	*init_ops_list(void);
+t_ops_list	*init_ops_list(char *op_name);
 t_ops		*init_ops(void);
-t_ops		*get_ops(t_stack *a, int mode, int bench_output, double disorder);
+t_ops		*get_ops(t_stack **a, int mode, double disorder);
 void		add_op_to_list(t_ops **ops, char *op_name);
 void		print_ops(t_ops_list *ops_list);
-//benchmark.c
-int			get_bench_output(int argc, char *argv[]);
+//input_parsing.c
+size_t		get_input_stack_len(int argc, char *argv[]);
+int			get_bench_output(char *argv[]);
+void		check_duplicate_options(int argc, char *argv[]);
+int			get_option(int argc, char *argv[]);
 //valid operations:
 //	a_ops.c
 void		sa(t_stack **a, t_ops **ops);
@@ -96,8 +97,8 @@ void		check_a(t_stack **a, t_stack **b, t_ops **ops);
 //disorder.c
 double		compute_disorder(t_stack *a);
 //print_utils.c
-void		print_ops_bench(t_ops *ops, int bench_output);
-void		print_bench(t_ops *ops, int bench_output,
+void		print_ops_bench(t_ops ops, int bench_output);
+void		print_bench(t_ops ops, int bench_output,
 				int mode, double disorder);
 char		*get_option_str(int mode);
 char		*get_strategy(int mode, double disorder);
