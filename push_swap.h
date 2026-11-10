@@ -46,7 +46,12 @@ typedef struct s_ops_count
 	int		rrr;
 	int		total;
 }	t_ops_count;
-
+//for complex
+typedef struct s_ops
+{
+	t_ops_list	*list;
+	t_ops_count	*count;
+}	t_ops;
 //valication.c
 void		validate_int(int value, char *values);
 void		check_duplicate(int value, t_stack *stack);
@@ -103,4 +108,11 @@ void		simple(t_stack **a, t_stack **b, size_t len);
 
 //complex.c
 void		assign_index(t_stack *stack);
+int			stack_size(t_stack *stack);
+int			get_pivot(int min, int max);
+int			partition_a(t_stack **a, t_stack **b,
+				int size, t_ops *ops);
+int			min_index(t_stack *stack, int size);
+int			max_index(t_stack *stack, int size);
+void		quick_sort_a(t_stack **a, t_stack **b, int size);
 #endif
