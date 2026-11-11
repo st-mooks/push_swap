@@ -54,6 +54,7 @@ void		raise_error(void);
 int			count_args(char *args[]);
 void		fill_args(char **split, char **split_arg, int original_len);
 int			split_args(char **argv[]);
+void		free_arr(char **arr);
 //list_functions.c
 t_stack		*stack_new(int n);
 t_stack		*stack_penultimate(t_stack *stack);

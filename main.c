@@ -30,5 +30,6 @@ int	main(int argc, char *argv[])
 	if (bench_output != 1)
 		print_ops(ops->ops_list);
 	free_all(a, ops);
+	free_arr(argv);
 	return (0);
 }

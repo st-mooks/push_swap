@@ -39,6 +39,18 @@ void	fill_args(char **split, char **split_arg, int original_len)
 	split[original_len] = NULL;
 }
 
+void	free_arr(char **arr)
+{
+	if (!arr)
+		return ;
+	while (*arr)
+	{
+		free(*arr);
+		arr += 1;
+	}
+
+}
+
 int	split_args(char **argv[])
 {
 	char	**split_arg;
@@ -49,7 +61,7 @@ int	split_args(char **argv[])
 
 	split = NULL;
 	count = 0;
-	i = 1;
+	i = 0;
 	while ((*argv)[i])
 	{
 		split_arg = ft_split((*argv)[i++], ' ');
@@ -62,5 +74,6 @@ int	split_args(char **argv[])
 		free(temp);
 	}
 	fill_args(*argv, split, 0);
-	return (count + 1);
+	free(split);
+	return (count);
 }
