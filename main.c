@@ -20,6 +20,7 @@ int	main(int argc, char *argv[])
 	double	disorder;
 	t_ops	*ops;
 
+	argc = split_args(&argv);
 	mode = get_option(argc, argv);
 	bench_output = get_bench_output(argv);
 	a = stack_init(argc, argv);
@@ -29,4 +30,5 @@ int	main(int argc, char *argv[])
 	if (bench_output != 1)
 		print_ops(ops->ops_list);
 	free_all(a, ops);
+	return (0);
 }

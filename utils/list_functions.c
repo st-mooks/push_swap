@@ -75,10 +75,10 @@ t_stack	*stack_init(int argc, char *argv[])
 	int		i;
 	size_t	len;
 
-	i = argc - 1;
+	i = argc - 2;
 	len = get_input_stack_len(argc, argv);
 	stack = NULL;
-	while ((size_t)i >= argc - len)
+	while (i >= (int)(argc - len - 1))
 	{
 		value = ft_atoi(argv[i]);
 		if (!validate_int(argv[i--])

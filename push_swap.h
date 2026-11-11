@@ -50,6 +50,10 @@ typedef struct s_ops
 int			validate_int(char *values);
 int			check_duplicate(int value, t_stack *stack);
 void		raise_error(void);
+//split_input.c
+int			count_args(char *args[]);
+void		fill_args(char **split, char **split_arg, int original_len);
+int			split_args(char **argv[]);
 //list_functions.c
 t_stack		*stack_new(int n);
 t_stack		*stack_penultimate(t_stack *stack);
