@@ -23,7 +23,7 @@ int	main(int argc, char *argv[])
 	argc = split_args(&argv);
 	mode = get_option(argc, argv);
 	bench_output = get_bench_output(argv);
-	a = stack_init(argc, argv);
+	a = stack_init(argc, argv, mode, bench_output);
 	disorder = compute_disorder(a);
 	ops = get_ops(&a, mode, disorder);
 	print_bench(*ops, bench_output, mode, disorder);

@@ -14,35 +14,21 @@
 
 int	get_bench_output(char *argv[])
 {
-	int	i;
-
-	i = 2;
-	while (i > 0)
+	while (*argv)
 	{
-		if (!ft_strncmp(argv[i--], "--bench", ft_strlen("--bench") + 1))
+		if (!ft_strncmp(*(argv++), "--bench", ft_strlen("--bench") + 1))
 			return (1);
 	}
 	return (2);
 }
 
-size_t	get_input_stack_len(int argc, char *argv[])
+int	get_input_stack_len(int argc, int mode, int bench_output)
 {
-	size_t	len;
-	int		i;
-
-	if (argc <= 1)
-		raise_error();
-	i = argc - 1;
-	len = i;
-	while (i > 0)
-	{
-		if (!ft_strncmp(argv[i], "--bench", ft_strlen("--bench") + 1))
-			len--;
-		i--;
-	}
-	if (get_option(argc, argv))
-		len--;
-	return (len);
+	if (bench_output == 1)
+		argc--;
+	if (mode)
+		argc--;
+	return (argc);
 }
 
 void	check_duplicate_options(int argc, char *argv[])

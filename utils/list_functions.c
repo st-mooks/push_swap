@@ -68,17 +68,17 @@ void	free_all(t_stack *a, t_ops *ops)
 	}
 }
 
-t_stack	*stack_init(int argc, char *argv[])
+t_stack	*stack_init(int argc, char *argv[], int mode, int bench_output)
 {
 	int		value;
 	t_stack	*stack;
 	int		i;
-	size_t	len;
+	int		len;
 
 	i = argc - 1;
-	len = get_input_stack_len(argc, argv);
+	len = get_input_stack_len(argc, mode, bench_output);
 	stack = NULL;
-	while (i >= (int)(argc - len))
+	while (i >= argc - len)
 	{
 		value = ft_atoi(argv[i]);
 		if (!validate_int(argv[i--])

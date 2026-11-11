@@ -6,7 +6,7 @@
 /*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 13:47:24 by mbadarin          #+#    #+#             */
-/*   Updated: 2026/11/11 13:47:27 by mbadarin         ###   ########.fr       */
+/*   Updated: 2026/11/11 20:57:05 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,53 +27,68 @@ int	count_args(char *args[])
 	return (count);
 }
 
-void	fill_args(char **split, char **split_arg, int original_len)
-{
-	if (!split_arg)
-		return ;
-	while (*split_arg)
-	{
-		split[original_len++] = *split_arg;
-		split_arg += 1;
-	}
-	split[original_len] = NULL;
-}
-
 void	free_arr(char **arr)
 {
+	char	**cpy;
+
 	if (!arr)
 		return ;
+	cpy = arr;
 	while (*arr)
 	{
 		free(*arr);
 		arr += 1;
 	}
+	free(cpy);
+}
 
+void	fill_str(char **str, char *argv[])
+{
+	size_t	i;
+	ssize_t	j;
+	
+	if (!argv)
+		return ;
+	i = ft_strlen(*argv);
+	j = 0;
+	while (*argv)
+	{
+		ft_memmove(*str + j, *argv, i);
+		argv += 1;
+		j += i;
+		*(*str + j) = ' ';
+		j++;
+		if (*argv)
+			i = ft_strlen(*argv);
+	}
+	*(*str + j) = '\0';
+}
+
+size_t	get_args_len(char *argv[])
+{
+	size_t	len;
+
+	len = 0;
+	while (*argv)
+	{
+		len += ft_strlen(*argv);
+		argv += 1;
+	}
+	return (len);
 }
 
 int	split_args(char **argv[])
 {
-	char	**split_arg;
+	size_t	len;
+	char	*str;
 	char	**split;
-	char	**temp;
-	int		count;
-	int		i;
-
-	split = NULL;
-	count = 0;
-	i = 0;
-	while ((*argv)[i])
-	{
-		split_arg = ft_split((*argv)[i++], ' ');
-		count += count_args(split_arg);
-		temp = split;
-		split = malloc((count + 1) * sizeof(char *));
-		fill_args(split, temp, 0);
-		fill_args(split, split_arg, count_args(temp));
-		free(split_arg);
-		free(temp);
-	}
-	fill_args(*argv, split, 0);
-	free(split);
-	return (count);
+	
+	*argv += 1;
+	len = get_args_len(*argv);
+	str = malloc(len * 2 * sizeof(char));
+	fill_str(&str, *argv);
+	split = ft_split(str, ' ');
+	free(str);
+	*argv = split;
+	return (count_args(*argv));
 }

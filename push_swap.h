@@ -52,7 +52,8 @@ int			check_duplicate(int value, t_stack *stack);
 void		raise_error(void);
 //split_input.c
 int			count_args(char *args[]);
-void		fill_args(char **split, char **split_arg, int original_len);
+void		fill_str(char **str, char *argv[]);
+size_t		get_args_len(char *argv[]);
 int			split_args(char **argv[]);
 void		free_arr(char **arr);
 //list_functions.c
@@ -60,7 +61,7 @@ t_stack		*stack_new(int n);
 t_stack		*stack_penultimate(t_stack *stack);
 t_stack		*stack_last(t_stack *stack);
 void		free_all(t_stack *a, t_ops *ops);
-t_stack		*stack_init(int argc, char *argv[]);
+t_stack		*stack_init(int argc, char *argv[], int mode, int bench_output);
 //push_swap_pop.c
 void		push(t_stack **stack, int n);
 void		push_to_stack(t_stack **dest, t_stack **src);
@@ -75,7 +76,7 @@ t_ops		*get_ops(t_stack **a, int mode, double disorder);
 void		add_op_to_list(t_ops **ops, char *op_name);
 void		print_ops(t_ops_list *ops_list);
 //input_parsing.c
-size_t		get_input_stack_len(int argc, char *argv[]);
+int			get_input_stack_len(int argc, int mode, int bench_output);
 int			get_bench_output(char *argv[]);
 void		check_duplicate_options(int argc, char *argv[]);
 int			get_option(int argc, char *argv[]);
