@@ -6,7 +6,7 @@
 /*   By: kalnajja <kalnajja@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 23:40:06 by kalnajja          #+#    #+#             */
-/*   Updated: 2026/11/11 16:06:52 by kalnajja         ###   ########.fr       */
+/*   Updated: 2026/11/11 16:45:56 by kalnajja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,16 @@ void	quick_sort_b(t_stack **a, t_stack **b, int size, t_ops **ops)
 	pushed = partition_b(a, b, size, ops);
 	quick_sort_a(a, b, pushed, ops);
 	quick_sort_b(a, b, size - pushed, ops);
+}
+
+t_ops	*complex_sort(t_stack **a)
+{
+	t_stack	*b;
+	t_ops	*ops;
+
+	b = NULL;
+	ops = NULL;
+	assign_index(*a);
+	quick_sort_a(a, &b, stack_size(*a), &ops);
+	return (ops);
 }
