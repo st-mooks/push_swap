@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 # include "./libft/libft.h"
 
 typedef struct s_stack
@@ -90,10 +89,6 @@ void		rrb(t_stack **b, t_ops **ops);
 void		ss(t_stack **a, t_stack **b, t_ops **ops);
 void		rr(t_stack **a, t_stack **b, t_ops **ops);
 void		rrr(t_stack **a, t_stack **b, t_ops **ops);
-//simple.c
-t_ops		*simple(t_stack **a);
-void		sort_b(t_stack **b, size_t b_len, t_ops **ops);
-void		check_a(t_stack **a, t_stack **b, t_ops **ops);
 //disorder.c
 double		compute_disorder(t_stack *a);
 //print_utils.c
@@ -102,4 +97,8 @@ void		print_bench(t_ops ops, int bench_output,
 				int mode, double disorder);
 char		*get_option_str(int mode);
 char		*get_strategy(int mode, double disorder);
+//simple.c
+t_ops		*simple(t_stack **a);
+void		sort_b(t_stack **b, size_t b_len, t_ops **ops);
+void		check_a(t_stack **a, t_stack **b, t_ops **ops);
 #endif

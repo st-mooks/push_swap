@@ -9,7 +9,7 @@ else
     shuf -i 0-$1 -o ${DIR}ARGS.txt
     echo "Successfully generated $1 args and saved into ARGS.txt"
 fi
-cc *.c -L./libft -lft -o push_swap -g
+cc main.c algorithm/*.c operations/*.c utils/*.c -L./libft -lft -o push_swap
 if [ -z "$2" ]
 then
 	./push_swap $(cat ${DIR}ARGS.txt) 1>${DIR}stdout.txt 2>${DIR}stderr.txt

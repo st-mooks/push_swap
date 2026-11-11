@@ -10,7 +10,7 @@
 /*																			  */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_ops_list	*init_ops_list(char *op_name)
 {

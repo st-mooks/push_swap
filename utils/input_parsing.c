@@ -10,7 +10,7 @@
 /*																			  */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	get_bench_output(char *argv[])
 {
