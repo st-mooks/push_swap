@@ -44,7 +44,8 @@ SOURCES:= 	${LIBFT_PATH}/ft_strchr.c\
 			${LIBFT_PATH}/ft_bzero.c\
 			${LIBFT_PATH}/ft_isalpha.c\
 			${LIBFT_PATH}/ft_lstadd_front.c\
-			${LIBFT_PATH}/ft_toupper.c
+			${LIBFT_PATH}/ft_toupper.c\
+			${LIBFT_PATH}/get_next_line.c
 OBJECTS:= ${SOURCES:.c=.o}
 all: ${NAME}
 ${NAME}: ${OBJECTS}

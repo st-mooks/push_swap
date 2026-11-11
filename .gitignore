@@ -1,4 +1,5 @@
 #Revise after finalising build!
 test_results/
-bonus/
-a.out
+*/a.out
+*/push_swap
+*/checker

@@ -27,6 +27,8 @@ void	push_to_stack(t_stack **dest, t_stack **src)
 {
 	t_stack	*temp;
 
+	if (!dest || !src || !*src)
+		return ;
 	temp = *dest;
 	*dest = *src;
 	*src = (*src)->next;

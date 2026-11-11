@@ -15,12 +15,10 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
-//Includes for testing purposes only
-/*# include <stdio.h>
-# include <ctype.h>
-# include <limits.h>
-# include <string.h>
-# include <bsd/string.h>*/
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4
+# endif
 
 typedef struct s_list
 {
@@ -71,4 +69,8 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
+//get_next_line
+char			*get_next_line(int fd);
+char			*add_char(char *str, char c);
+void			parse_buffer(char **line, char *buf, int fd);
 #endif
