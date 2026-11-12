@@ -20,6 +20,7 @@
 typedef struct s_stack
 {
 	int				value;
+	int				index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -45,6 +46,12 @@ typedef struct s_ops
 	int			rrr_count;
 	int			total;
 }	t_ops;
+
+typedef struct s_partition
+{
+	int	size;
+	int	rotated;
+}	t_partition;
 
 //valication.c
 int			validate_int(char *values);
@@ -107,4 +114,15 @@ char		*get_strategy(int mode, double disorder);
 t_ops		*simple(t_stack **a);
 void		sort_b(t_stack **b, size_t b_len, t_ops **ops);
 void		check_a(t_stack **a, t_stack **b, t_ops **ops);
+//complex
+void		assign_index(t_stack *stack);
+int			stack_size(t_stack *stack);
+int			get_pivot(int min, int max);
+int			min_index(t_stack *stack, int size);
+int			max_index(t_stack *stack, int size);
+int			partition_a(t_stack **a, t_stack **b, int size, t_ops **ops);
+int			partition_b(t_stack **a, t_stack **b, int size, t_ops **ops);
+void		quick_sort_a(t_stack **a, t_stack **b, int size, t_ops **ops);
+void		quick_sort_b(t_stack **a, t_stack **b, int size, t_ops **ops);
+t_ops		*complex_sort(t_stack **a);
 #endif

@@ -20,6 +20,7 @@ t_stack	*stack_new(int n)
 	if (!new)
 		return (NULL);
 	new->value = n;
+	new->index = 0;
 	new->next = NULL;
 	return (new);
 }

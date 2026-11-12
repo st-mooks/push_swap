@@ -37,14 +37,17 @@ void	push_to_stack(t_stack **dest, t_stack **src)
 
 void	swap(t_stack **stack)
 {
-	int	temp;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (!stack)
 		return ;
 	if (*stack && (*stack)->next)
 	{
-		temp = (*stack)->value;
-		(*stack)->value = (*stack)->next->value;
-		(*stack)->next->value = temp;
+		first = (*stack);
+		second = (*stack)->next;
+		first->next = second->next;
+		second->next = first;
+		*stack = second;
 	}
 }

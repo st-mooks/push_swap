@@ -21,7 +21,12 @@ UTILS_PATH:=		${PUSH_SWAP_PATH}/utils
 LIBFT_PATH:=		${PUSH_SWAP_PATH}/libft
 BONUS_PATH:=		${PUSH_SWAP_PATH}/bonus
 MAIN:=				${PUSH_SWAP_PATH}/main.c
-SOURCES:=			${ALGORITHM_PATH}/simple.c\
+SOURCES:=			${ALGORITHM_PATH}/complex_index.c\
+					${ALGORITHM_PATH}/complex_partition_a.c\
+					${ALGORITHM_PATH}/complex_partition_b.c\
+					${ALGORITHM_PATH}/complex_sort.c\
+					${ALGORITHM_PATH}/complex_utils.c\
+					${ALGORITHM_PATH}/simple.c\
 					${OPERATIONS_PATH}/a_ops.c\
 					${OPERATIONS_PATH}/b_ops.c\
 					${OPERATIONS_PATH}/ab_ops.c\

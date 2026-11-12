@@ -57,7 +57,7 @@ int	get_option(int argc, char *argv[])
 
 	check_duplicate_options(argc, argv);
 	option = 0;
-	while (--argc > 0)
+	while (--argc >= 0)
 	{
 		str = argv[argc];
 		if (!ft_strncmp(str, "--simple", ft_strlen("--simple") + 1))

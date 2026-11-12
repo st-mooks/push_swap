@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	rotate(t_stack **stack)
+void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*last;
 	t_stack	*penultimate;
@@ -26,7 +26,7 @@ void	rotate(t_stack **stack)
 	penultimate->next = NULL;
 }
 
-void	reverse_rotate(t_stack **stack)
+void	rotate(t_stack **stack)
 {
 	t_stack	*last;
 

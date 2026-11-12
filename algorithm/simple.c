@@ -27,13 +27,13 @@ void	sort_b(t_stack **b, size_t b_len, t_ops **ops)
 	while (b_len > 0 && (*b)->value < (*b)->next->value)
 	{
 		sb(b, ops);
-		rrb(b, ops);
+		rb(b, ops);
 		b_len--;
 		rotations++;
 	}
 	while (rotations > 0)
 	{
-		rb(b, ops);
+		rrb(b, ops);
 		rotations--;
 	}
 }
