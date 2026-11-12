@@ -6,6 +6,8 @@
 
 ### Description
 
+A program that sorts a stack of integers utilising several algorithims based on a disroder metric.
+
 ### Instructions
 
 ### Resources

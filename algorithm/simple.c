@@ -38,7 +38,7 @@ void	sort_b(t_stack **b, size_t b_len, t_ops **ops)
 	}
 }
 
-t_ops	*simple(t_stack **a)
+/* t_ops	*simple(t_stack **a)
 {
 	int		i;
 	int		b_len;
@@ -59,5 +59,23 @@ t_ops	*simple(t_stack **a)
 	}
 	while (i-- > 0)
 		pa(a, &b, &ops);
+	return (ops);
+} */
+
+t_ops	*simple(t_stack **a)
+{
+	int		len;
+	t_ops	*ops;
+
+	len = ft_lstsize((t_list *)*a);
+	ops = init_ops();
+	while (len > 1)
+	{
+		if ((*a)->next && (*a)->value > (*a)->next->value)
+			sa(a, &ops);
+		rra(a, &ops);
+		len--;
+	}
+	rrb(a, &ops);
 	return (ops);
 }
