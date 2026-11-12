@@ -1,5 +1,6 @@
 #Revise after finalising build!
 test_results/
-*/a.out
-*/push_swap
-*/checker
+*a.out
+*push_swap
+*checker
+*.txt
