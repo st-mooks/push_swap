@@ -46,6 +46,7 @@ void	print_ops_bench(t_ops ops, int bench_output)
 	ft_putnbr_fd(ops.rrb_count, bench_output);
 	ft_putstr_fd("\trrr: ", bench_output);
 	ft_putnbr_fd(ops.rrr_count, bench_output);
+	ft_putchar_fd('\n', bench_output);
 }
 
 void	print_bench(t_ops ops, int bench_output,
