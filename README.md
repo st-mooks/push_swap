@@ -4,12 +4,23 @@
 
 ## A 42 Amman Porject
 
+### Tbale of contents
+1. [Description](#description)
+2. [Instructions](#instructions)
+3. [Resources](#resources)
+   - [Use of AI](#use-of-ai)
+4. [Detailed description](#detailed-description)
+   1. [Disorder](#disorder)
+   2. [Modes](#modes)
+      1. [Adaptive mode](#adaptive-mode---adaptive-default)
+      2. [Simple](#simple-mode-on---simple)
+      3. [Medium mode](#medium-mode-onn---medium)
+      4. [Complex mode](#complex-mode-onlogn---complex)
+      5. [Benchmark mode](#benchmark-mode---bench)
+
 ### Description
 
 A program that sorts a stack of integers utilising several algorithims based on a disroder metric.
-
-### Tbale of contents
-
 
 ### Instructions
 
@@ -49,7 +60,7 @@ The algorithm loops until only one value is left in *a*, which is the largest by
 
 ##### Complex mode (O(nlog(n))) --complex
 
-##### Benchmark --bench
+##### Benchmark mode --bench
 
 Displays the disorder as a percentage, the strategy used (including the comlexity expressed in BigO notation), the total number of operations performed, and the tally of operations used.
 
