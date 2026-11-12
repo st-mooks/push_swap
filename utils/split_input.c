@@ -86,6 +86,8 @@ int	split_args(char **argv[])
 	*argv += 1;
 	len = get_args_len(*argv);
 	str = malloc(len * 2 * sizeof(char));
+	if (!str)
+		raise_error();
 	fill_str(&str, *argv);
 	split = ft_split(str, ' ');
 	free(str);
