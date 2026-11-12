@@ -46,7 +46,7 @@ void	fill_str(char **str, char *argv[])
 {
 	size_t	i;
 	ssize_t	j;
-	
+
 	if (!argv)
 		return ;
 	i = ft_strlen(*argv);
@@ -82,7 +82,7 @@ int	split_args(char **argv[])
 	size_t	len;
 	char	*str;
 	char	**split;
-	
+
 	*argv += 1;
 	len = get_args_len(*argv);
 	str = malloc(len * 2 * sizeof(char));
