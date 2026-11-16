@@ -1,5 +1,6 @@
 #Revise after finalising build!
 test_results/
+push_swap_visualizer/
 *a.out
 *push_swap
 *checker
