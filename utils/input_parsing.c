@@ -66,6 +66,8 @@ int	get_option(int argc, char *argv[])
 			option = 2;
 		if (!ft_strncmp(str, "--complex", ft_strlen("--complex") + 1))
 			option = 3;
+		if (!ft_strncmp(str, "--adaptive", ft_strlen("--adaptive") + 1))
+			option = 4;
 	}
 	return (option);
 }

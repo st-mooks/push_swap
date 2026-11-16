@@ -1,5 +1,4 @@
 #!/bin/zsh
-
 mkdir -p test_results
 DIR=./test_results/
 rm -f push_swap ${DIR}ARGS.txt ${DIR}stdout.txt ${DIR}stderr.txt ${DIR}valgrind.txt
@@ -9,11 +8,13 @@ then
     exit
 else
     shuf -i 0-$1 -o ${DIR}ARGS.txt
-    echo "Successfully generated $1 args and saved into ARGS.txt"
+    echo "Successfully generated $1 args."
 fi
-make
-make bonus
-make clean
+make -s
+make bonus -s
+make clean -s
+chmod +x checker
+chmod +x checker_linux
 if [ -z "$2" ] || [ "$2" = "--bench" ]
 then
 	./push_swap $(cat ${DIR}ARGS.txt) 1>${DIR}stdout.txt 2>${DIR}stderr.txt
@@ -26,6 +27,9 @@ else
 	echo "Invalid inputs."
     exit
 fi
+echo "Bonus checker result:"
 ./checker $(cat ./test_results/ARGS.txt) < ./test_results/stdout.txt
-echo "Test results saved into ./test_results/"
+echo "checker_linux results:"
+./checker_linux $(cat ./test_results/ARGS.txt) < ./test_results/stdout.txt
+echo "Test complete. Test results and parameters saved into ./test_results/"
 rm -f push_swap temp checker

@@ -6,7 +6,7 @@
 #    By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/12 16:02:50 by mbadarin          #+#    #+#              #
-#    Updated: 2026/11/16 12:08:24 by mbadarin         ###   ########.fr        #
+#    Updated: 2026/11/16 13:00:30 by mbadarin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ HEADER:=			push_swap.h
 BONUS_HEADER:=		${BONUS_PATH}\push_swap_bonus.h
 all: ${NAME}
 ${NAME}: ${MAIN} ${OBJECTS} 
-	${CC} ${CFLAGS} $^ -L${LIBFT_PATH} -lft -o ${NAME} 
+	${CC} ${CFLAGS} $^ -L${LIBFT_PATH} -lft -o ${NAME}
 bonus: ${BONUS_MAIN} ${BONUS_OBJECTS} ${OBJECTS}
 	${CC} ${CFLAGS} $^ -L${LIBFT_PATH} -lft -o ${BONUS_NAME}
 %.c: %.o ${HEADER} ${BONUS_HEADER}
