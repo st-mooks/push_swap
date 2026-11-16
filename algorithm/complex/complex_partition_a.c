@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   complex_partition_a.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kalnajja <kalnajja@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 14:38:32 by kalnajja          #+#    #+#             */
-/*   Updated: 2026/11/12 16:09:26 by kalnajja         ###   ########.fr       */
+/*   Updated: 2026/11/16 11:52:56 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 static void	restore_a(t_stack **a, t_ops **ops, int rotated)
 {

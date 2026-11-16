@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   complex_partition_b.c                             :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: kalnajja <kalnajja@student.42amman.com>   #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/11/11 15:53:38 by kalnajja         #+#    #+#              */
-/*   Updated: 2026/11/11 17:25:36 by kalnajja        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   complex_partition_b.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/11 15:53:38 by kalnajja          #+#    #+#             */
+/*   Updated: 2026/11/16 11:52:53 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 static void	restore_b(t_stack **b, t_ops **ops, int rotated)
 {

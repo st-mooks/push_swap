@@ -73,7 +73,7 @@ t_ops	*get_ops(t_stack **a, int mode, double disorder)
 	if (mode == 1 || (!mode && disorder < 0.2))
 		ops = simple(a);
 	else if (mode == 2 || (!mode && 0.2 <= disorder && disorder < 0.5))
-		ops = simple(a);
+		ops = chunk_sort(a);
 	else
 		ops = complex_sort(a);
 	return (ops);

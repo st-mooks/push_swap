@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   complex_index.c                                   :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: kalnajja <kalnajja@student.42amman.com>   #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/11/07 20:59:39 by kalnajja         #+#    #+#              */
-/*   Updated: 2026/11/11 17:25:33 by kalnajja        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   complex_index.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/07 20:59:39 by kalnajja          #+#    #+#             */
+/*   Updated: 2026/11/16 11:52:58 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 void	assign_index(t_stack *stack)
 {

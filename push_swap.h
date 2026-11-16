@@ -53,6 +53,12 @@ typedef struct s_partition
 	int	rotated;
 }	t_partition;
 
+typedef struct s_chunk
+{
+	int	pushed;
+	int	chunk;
+}	t_chunk;
+
 //valication.c
 int			validate_int(char *values);
 int			check_duplicate(int value, t_stack *stack);
@@ -125,4 +131,12 @@ int			partition_b(t_stack **a, t_stack **b, int size, t_ops **ops);
 void		quick_sort_a(t_stack **a, t_stack **b, int size, t_ops **ops);
 void		quick_sort_b(t_stack **a, t_stack **b, int size, t_ops **ops);
 t_ops		*complex_sort(t_stack **a);
+//medium
+int			get_pos(t_stack *s, int idx);
+void		bring_to_top_b(t_stack **b, int idx, t_ops **ops);
+int			get_chunk_size(int size);
+void		chunk_push_to_b(t_stack **a, t_stack **b, int chunk, t_ops **ops);
+void		push_back_to_a(t_stack **a, t_stack **b, t_ops **ops);
+t_ops		*chunk_sort(t_stack **a);
+int			get_max_index(t_stack *stack);
 #endif

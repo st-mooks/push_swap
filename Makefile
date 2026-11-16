@@ -6,7 +6,7 @@
 #    By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/12 16:02:50 by mbadarin          #+#    #+#              #
-#    Updated: 2026/11/12 16:02:54 by mbadarin         ###   ########.fr        #
+#    Updated: 2026/11/16 12:08:24 by mbadarin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,22 @@ CC:= 				cc
 CFLAGS:=			-Wall -Werror -Wextra
 PUSH_SWAP_PATH:= 	.
 ALGORITHM_PATH:=	${PUSH_SWAP_PATH}/algorithm
+MEDIUM_PATH:=		${ALGORITHM_PATH}/medium
+COMPLEX_PATH:=		${ALGORITHM_PATH}/complex
 OPERATIONS_PATH:=	${PUSH_SWAP_PATH}/operations
 UTILS_PATH:=		${PUSH_SWAP_PATH}/utils
 LIBFT_PATH:=		${PUSH_SWAP_PATH}/libft
 BONUS_PATH:=		${PUSH_SWAP_PATH}/bonus
 MAIN:=				${PUSH_SWAP_PATH}/main.c
-SOURCES:=			${ALGORITHM_PATH}/complex_index.c\
-					${ALGORITHM_PATH}/complex_partition_a.c\
-					${ALGORITHM_PATH}/complex_partition_b.c\
-					${ALGORITHM_PATH}/complex_sort.c\
-					${ALGORITHM_PATH}/complex_utils.c\
-					${ALGORITHM_PATH}/simple.c\
+SOURCES:=			${ALGORITHM_PATH}/simple.c\
+					${MEDIUM_PATH}/medium_push.c\
+					${MEDIUM_PATH}/medium_utils.c\
+					${MEDIUM_PATH}/medium.c\
+					${COMPLEX_PATH}/complex_index.c\
+					${COMPLEX_PATH}/complex_partition_a.c\
+					${COMPLEX_PATH}/complex_partition_b.c\
+					${COMPLEX_PATH}/complex_sort.c\
+					${COMPLEX_PATH}/complex_utils.c\
 					${OPERATIONS_PATH}/a_ops.c\
 					${OPERATIONS_PATH}/b_ops.c\
 					${OPERATIONS_PATH}/ab_ops.c\

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   complex_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kalnajja <kalnajja@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 23:40:06 by kalnajja          #+#    #+#             */
-/*   Updated: 2026/11/12 16:09:28 by kalnajja         ###   ########.fr       */
+/*   Updated: 2026/11/16 11:52:40 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
+#include "../../push_swap.h"
 
 void	quick_sort_a(t_stack **a, t_stack **b, int size, t_ops **ops)
 {
