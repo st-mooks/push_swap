@@ -6,7 +6,7 @@
 /*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 13:47:24 by mbadarin          #+#    #+#             */
-/*   Updated: 2026/11/11 20:57:05 by mbadarin         ###   ########.fr       */
+/*   Updated: 2026/11/16 14:43:52 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	fill_str(char **str, char *argv[])
 	size_t	i;
 	ssize_t	j;
 
-	if (!argv)
+	if (!argv || !*argv)
 		return ;
 	i = ft_strlen(*argv);
 	j = 0;

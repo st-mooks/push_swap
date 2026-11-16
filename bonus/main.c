@@ -6,7 +6,7 @@
 /*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 13:52:53 by mbadarin          #+#    #+#             */
-/*   Updated: 2026/11/11 21:23:36 by mbadarin         ###   ########.fr       */
+/*   Updated: 2026/11/16 14:48:57 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int argc, char *argv[])
 
 	argc = split_args(&argv);
 	a = stack_init(argc, argv, get_option(argc, argv), get_bench_output(argv));
+	if (!a)
+		return (0);
 	b = NULL;
 	ops = init_ops();
 	op = get_next_line(0);
