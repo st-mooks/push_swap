@@ -18,8 +18,28 @@ void	raise_error(void)
 	exit(EXIT_FAILURE);
 }
 
+size_t	digit_count(int i)
+{
+	size_t	count;
+
+	count = 0;
+	if (i <= 0)
+		count++;
+	while (i != 0)
+	{
+		count++;
+		i /= 10;
+	}
+	return (count);
+}
+
 int	validate_int(char *value_str)
 {
+	int	i;
+
+	i = ft_atoi(value_str);
+	if (ft_strlen(value_str) != digit_count(i))
+		return (0);
 	if (*value_str == '+' || *value_str == '-')
 		value_str += 1;
 	while (*value_str && ft_isdigit(*value_str))
