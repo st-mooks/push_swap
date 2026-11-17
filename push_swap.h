@@ -96,12 +96,12 @@ int			get_option(int argc, char *argv[]);
 //valid operations:
 //	a_ops.c
 void		sa(t_stack **a, t_ops **ops);
-void		pa(t_stack **a, t_stack**b, t_ops **ops);
+void		pa(t_stack **a, t_stack **b, t_ops **ops);
 void		ra(t_stack **a, t_ops **ops);
 void		rra(t_stack **a, t_ops **ops);
 //	b_ops.c
 void		sb(t_stack **b, t_ops **ops);
-void		pb(t_stack **a, t_stack**b, t_ops **ops);
+void		pb(t_stack **a, t_stack **b, t_ops **ops);
 void		rb(t_stack **b, t_ops **ops);
 void		rrb(t_stack **b, t_ops **ops);
 //	ab_ops.c
@@ -119,7 +119,7 @@ char		*get_strategy(int mode, double disorder);
 //simple.c
 t_ops		*simple(t_stack **a);
 void		sort_b(t_stack **b, size_t b_len, t_ops **ops);
-void		check_a(t_stack **a, t_stack **b, t_ops **ops);
+void		push_b(t_stack **a, t_stack **b, t_ops **ops);
 //complex
 void		assign_index(t_stack *stack);
 int			stack_size(t_stack *stack);
@@ -136,7 +136,6 @@ int			get_pos(t_stack *s, int idx);
 void		bring_to_top_b(t_stack **b, int idx, t_ops **ops);
 int			get_chunk_size(int size);
 void		chunk_push_to_b(t_stack **a, t_stack **b, int chunk, t_ops **ops);
-void		push_back_to_a(t_stack **a, t_stack **b, t_ops **ops);
+void		push_back_to_a(t_stack **a, t_stack **b, t_ops **ops, int size);
 t_ops		*chunk_sort(t_stack **a);
-int			get_max_index(t_stack *stack);
 #endif

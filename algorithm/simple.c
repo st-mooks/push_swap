@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	check_a(t_stack **a, t_stack **b, t_ops **ops)
+void	push_b(t_stack **a, t_stack **b, t_ops **ops)
 {
 	if ((*a)->value > (*a)->next->value)
 		sa(a, ops);
@@ -52,7 +52,7 @@ t_ops	*simple(t_stack **a)
 	i = 0;
 	while (i + 1 < len)
 	{
-		check_a(a, &b, &ops);
+		push_b(a, &b, &ops);
 		i++;
 		b_len = i - 1;
 		sort_b(&b, b_len, &ops);

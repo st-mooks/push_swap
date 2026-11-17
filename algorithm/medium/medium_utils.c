@@ -56,17 +56,3 @@ void	bring_to_top_b(t_stack **b, int idx, t_ops **ops)
 		}
 	}
 }
-
-int	get_max_index(t_stack *stack)
-{
-	int	max;
-
-	max = stack->index;
-	while (stack)
-	{
-		if (stack->index > max)
-			max = stack->index;
-		stack = stack->next;
-	}
-	return (max);
-}

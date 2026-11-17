@@ -27,10 +27,11 @@ t_ops	*chunk_sort(t_stack **a)
 
 	b = NULL;
 	ops = init_ops();
+	assign_index(*a);
 	size = stack_size(*a);
 	if (size == 0)
 		return (ops);
 	chunk_push_to_b(a, &b, get_chunk_size(size), &ops);
-	push_back_to_a(a, &b, &ops);
+	push_back_to_a(a, &b, &ops, size);
 	return (ops);
 }

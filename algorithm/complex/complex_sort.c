@@ -60,6 +60,7 @@ t_ops	*complex_sort(t_stack **a)
 
 	b = NULL;
 	ops = init_ops();
+	assign_index(*a);
 	if (!ops)
 		return (NULL);
 	quick_sort_a(a, &b, stack_size(*a), &ops);

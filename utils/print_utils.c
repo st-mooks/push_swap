@@ -69,7 +69,7 @@ void	print_bench(t_ops ops, int bench_output,
 
 char	*get_option_str(int mode)
 {
-	if (mode == 0)
+	if (mode == 0 || mode == 4)
 		return ("Adaptive / ");
 	if (mode == 1)
 		return ("Simple / ");

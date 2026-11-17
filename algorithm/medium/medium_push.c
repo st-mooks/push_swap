@@ -12,7 +12,8 @@
 
 #include "../../push_swap.h"
 
-static void	push_small_to_b(t_stack **a, t_stack **b, t_chunk *data, t_ops **ops)
+static void	push_small_to_b(t_stack **a, t_stack **b,
+	t_chunk *data, t_ops **ops)
 {
 	pb(a, b, ops);
 	if ((*b)->next)
@@ -63,14 +64,15 @@ void	chunk_push_to_b(t_stack **a, t_stack **b, int chunk, t_ops **ops)
 		push_one_to_b(a, b, &data, ops);
 }
 
-void	push_back_to_a(t_stack **a, t_stack **b, t_ops **ops)
+void	push_back_to_a(t_stack **a, t_stack **b, t_ops **ops, int size)
 {
 	int	max;
 
+	max = size - 1;
 	while (*b)
 	{
-		max = get_max_index(*b);
 		bring_to_top_b(b, max, ops);
 		pa(a, b, ops);
+		max--;
 	}
 }
