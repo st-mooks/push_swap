@@ -19,7 +19,7 @@ int	get_bench_output(char *argv[])
 		if (!ft_strncmp(*(argv++), "--bench", ft_strlen("--bench") + 1))
 			return (1);
 	}
-	return (2);
+	return (0);
 }
 
 int	get_input_stack_len(int argc, int mode, int bench_output)

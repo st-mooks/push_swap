@@ -142,9 +142,8 @@ void		rrr(t_stack **a, t_stack **b, t_ops **ops);
 //disorder.c
 double		compute_disorder(t_stack *a);
 //print_utils.c
-void		print_ops_bench(t_ops ops, int bench_output);
-void		print_bench(t_ops ops, int bench_output,
-				int mode, double disorder);
+void		print_ops_bench(t_ops ops);
+void		print_bench(t_ops ops, int mode, double disorder);
 char		*get_option_str(int mode);
 char		*get_strategy(int mode, double disorder);
 //simple.c

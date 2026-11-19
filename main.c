@@ -26,9 +26,9 @@ int	main(int argc, char *argv[])
 	a = stack_init(argc, argv, mode, bench_output);
 	disorder = compute_disorder(a);
 	ops = get_ops(&a, mode, disorder);
-	print_bench(*ops, bench_output, mode, disorder);
-	if (bench_output != 1)
-		print_ops(ops->ops_list);
+	if (bench_output)
+		print_bench(*ops, mode, disorder);
+	print_ops(ops->ops_list);
 	free_all(a, ops);
 	free_arr(argv);
 	return (0);
