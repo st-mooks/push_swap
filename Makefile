@@ -6,7 +6,7 @@
 #    By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/12 16:02:50 by mbadarin          #+#    #+#              #
-#    Updated: 2026/11/16 13:00:30 by mbadarin         ###   ########.fr        #
+#    Updated: 2026/11/19 12:30:56 by mbadarin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,11 +27,10 @@ SOURCES:=			${ALGORITHM_PATH}/simple.c\
 					${MEDIUM_PATH}/medium_push.c\
 					${MEDIUM_PATH}/medium_utils.c\
 					${MEDIUM_PATH}/medium.c\
-					${COMPLEX_PATH}/complex_index.c\
-					${COMPLEX_PATH}/complex_partition_a.c\
-					${COMPLEX_PATH}/complex_partition_b.c\
-					${COMPLEX_PATH}/complex_sort.c\
-					${COMPLEX_PATH}/complex_utils.c\
+					${COMPLEX_PATH}/3way_base.c\
+					${COMPLEX_PATH}/3way_helpers.c\
+					${COMPLEX_PATH}/3way_solve.c\
+					${COMPLEX_PATH}/3way_utils.c\
 					${OPERATIONS_PATH}/a_ops.c\
 					${OPERATIONS_PATH}/b_ops.c\
 					${OPERATIONS_PATH}/ab_ops.c\
@@ -43,6 +42,7 @@ SOURCES:=			${ALGORITHM_PATH}/simple.c\
 					${UTILS_PATH}/ops_utils.c\
 					${UTILS_PATH}/print_utils.c\
 					${UTILS_PATH}/split_input.c\
+					${UTILS_PATH}/utils_medium_complex.c\
 					${UTILS_PATH}/validation.c
 BONUS_MAIN:=		${BONUS_PATH}/main.c
 BONUS_SOURCES:=		${BONUS_PATH}/utils.c

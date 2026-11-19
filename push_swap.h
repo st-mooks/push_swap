@@ -17,6 +17,34 @@
 # include <unistd.h>
 # include "./libft/libft.h"
 
+# ifndef STACK_A_TOP
+#  define STACK_A_TOP 0
+# endif
+
+# ifndef STACK_A_BOTTOM
+#  define STACK_A_BOTTOM 1
+# endif
+
+# ifndef STACK_B_TOP
+#  define STACK_B_TOP 2
+# endif
+
+# ifndef STACK_B_BOTTOM
+#  define STACK_B_BOTTOM 3
+# endif
+
+# ifndef GROUP_MAX
+#  define GROUP_MAX 0
+# endif
+
+# ifndef GROUP_MIDDLE
+#  define GROUP_MIDDLE 1
+# endif
+
+# ifndef GROUP_MIN
+#  define GROUP_MIN 2
+# endif
+
 typedef struct s_stack
 {
 	int				value;
@@ -47,11 +75,14 @@ typedef struct s_ops
 	int			total;
 }	t_ops;
 
-typedef struct s_partition
+typedef struct s_segment
 {
-	int	size;
-	int	rotated;
-}	t_partition;
+	int	location;
+	int	lowest_index;
+	int	element_count;
+	int	min_boundary;
+	int	max_boundary;
+}	t_segment;
 
 typedef struct s_chunk
 {
@@ -121,16 +152,22 @@ t_ops		*simple(t_stack **a);
 void		sort_b(t_stack **b, size_t b_len, t_ops **ops);
 void		push_b(t_stack **a, t_stack **b, t_ops **ops);
 //complex
-void		assign_index(t_stack *stack);
-int			stack_size(t_stack *stack);
-int			get_pivot(int min, int max);
-int			min_index(t_stack *stack, int size);
-int			max_index(t_stack *stack, int size);
-int			partition_a(t_stack **a, t_stack **b, int size, t_ops **ops);
-int			partition_b(t_stack **a, t_stack **b, int size, t_ops **ops);
-void		quick_sort_a(t_stack **a, t_stack **b, int size, t_ops **ops);
-void		quick_sort_b(t_stack **a, t_stack **b, int size, t_ops **ops);
-t_ops		*complex_sort(t_stack **a);
+int			destination_of(int location, int group);
+int			get_group(int index, t_segment *segment);
+void		fetch_segment(t_stack **a, t_stack **b, t_ops **ops, int location);
+void		move_from_a(t_stack **a, t_stack **b, t_ops **ops, int destination);
+void		move_from_b(t_stack **a, t_stack **b, t_ops **ops, int destination);
+void		sort_three_a(t_stack **a, t_ops **ops);
+void		sort_three_b(t_stack **b, t_ops **ops);
+void		base_sort(t_stack **a, t_stack **b, t_ops **ops, t_segment *segment);
+void		process_element(t_stack **a, t_stack **b,
+				t_ops	**ops, t_segment *segment);
+void		set_boundaries(t_segment *segment);
+void		solve_segments(t_stack **a, t_stack **b,
+				t_ops **ops, t_segment *segment);
+void		set_segment(t_segment *segment, int location,
+				int lowest_index, int element_count);
+t_ops		*three_way_sort(t_stack **a);
 //medium
 int			get_pos(t_stack *s, int idx);
 void		bring_to_top_b(t_stack **b, int idx, t_ops **ops);
@@ -138,4 +175,7 @@ int			get_chunk_size(int size);
 void		chunk_push_to_b(t_stack **a, t_stack **b, int chunk, t_ops **ops);
 void		push_back_to_a(t_stack **a, t_stack **b, t_ops **ops, int size);
 t_ops		*chunk_sort(t_stack **a);
+//utils_medium_complex.c
+void		assign_index(t_stack *stack);
+int			stack_size(t_stack *stack);
 #endif

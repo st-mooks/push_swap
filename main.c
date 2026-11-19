@@ -25,8 +25,6 @@ int	main(int argc, char *argv[])
 	bench_output = get_bench_output(argv);
 	a = stack_init(argc, argv, mode, bench_output);
 	disorder = compute_disorder(a);
-	if (disorder == 0)
-		return (0);
 	ops = get_ops(&a, mode, disorder);
 	print_bench(*ops, bench_output, mode, disorder);
 	if (bench_output != 1)

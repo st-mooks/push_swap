@@ -6,7 +6,7 @@
 /*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 18:54:20 by kalnajja          #+#    #+#             */
-/*   Updated: 2026/11/16 12:02:22 by mbadarin         ###   ########.fr       */
+/*   Updated: 2026/11/19 13:30:45 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ t_ops	*chunk_sort(t_stack **a)
 	size = stack_size(*a);
 	if (size == 0)
 		return (ops);
+	if (size <= 3)
+	{
+		sort_three_a(a, &ops);
+		return (ops);
+	}
 	chunk_push_to_b(a, &b, get_chunk_size(size), &ops);
 	push_back_to_a(a, &b, &ops, size);
 	return (ops);

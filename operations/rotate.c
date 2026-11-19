@@ -30,7 +30,7 @@ void	rotate(t_stack **stack)
 {
 	t_stack	*last;
 
-	if (!stack || !*stack)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	last = *stack;
 	*stack = (*stack)->next;

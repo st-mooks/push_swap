@@ -6,9 +6,10 @@
 /*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 12:37:50 by mbadarin          #+#    #+#             */
-/*   Updated: 2026/10/14 12:16:27 by mbadarin         ###   ########.fr       */
+/*   Updated: 2026/11/19 12:23:28 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
