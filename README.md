@@ -106,9 +106,15 @@ ARGS="4 2 1 6"; ./push_swap $ARGS 1> ops.txt; ./checker $ARGS < ops.txt
 <hr/>
 
 ### Resources
+
+- [Grokking Algorithms](https://github.com/agrism/books/blob/master/Grokking%20Algorithms%20-%20An%20illustrated%20guide%20for%20programmers%20and%20other%20curious%20people.pdf): Introductory book on algorithms.
+- [GeeksforGeeks.com](https://www.geeksforgeeks.org/dsa/3-way-quicksort-dutch-national-flag/): 3-way algorithm (used for complex option)
+- [Medium.com](https://satyadeepmaheshwari.medium.com/sorting-large-datasets-with-limited-memory-the-chunked-merge-sort-approach-318275275c81): Chunk-merge algorithm (used for medium option)
 <hr/>
 
 #### Use of AI
+
+Use of AI was limited to explaining the overall concepts, using AI_mentor_instructions.json with each prompt to ensure that only the conecpt are explained and no ready solutions are generated.
 <hr/>
 
 ### Detailed description
@@ -148,9 +154,54 @@ The time complexity of this algorithm is O(n²) because it compares each element
 <hr/>
 
 ##### Medium mode (O(n√n)) --medium
+
+The algorithm first assigns an index to each element using Coordinate Compression. Each element receives an index based on its relative position in the sorted order, allowing the algorithm to work with indices instead of the original values.
+
+It then determines the chunk window size based on the number of elements:
+
+- 15 for inputs containing up to 100 elements.
+- 30 for inputs containing more than 100 elements.
+
+The algorithm distributes elements from stack *a* to stack *b* using a moving window controlled by two variables:
+
+- **PUSHED:** tracks the number of elements transferred from stack *a* to stack *b*.
+- **CHUNK:** determines the width of the current index window.
+
+For each element at the top of stack *a*:
+
+- If its index is less than or equal to PUSHED, it is pushed to stack *b* using `pb`, then rotated using `rb` to move smaller elements toward the bottom of stack *b*.
+- If its index is within the current window (PUSHED + CHUNK), it is pushed to stack *b* using `pb` without rotation.
+- Otherwise, stack *a* is rotated using `ra` to inspect the next element.
+
+This process continues until all elements have been transferred from stack *a* to stack *b*.
+
+Once stack *a* is empty, the algorithm rebuilds the sorted stack by repeatedly finding the maximum index in stack *b*, bringing it to the top using the shortest rotation direction (`rb` or `rrb`), and moving it back to stack *a* using `pa`.
+
+By repeatedly moving the maximum remaining element to stack *a*, the algorithm builds the final stack in ascending order.
+
+The chunk distribution strategy aims to reduce the number of operations by keeping larger elements closer to the top of stack *b*, while moving smaller elements toward the bottom. The chunk size is a tuning parameter and may require adjustment depending on the input size and operation results.
+
+The sorting phase is expected to perform around **O(n²)** operations in the worst case, since finding the maximum index in stack *b* and bringing it to the top are repeated for each element. Coordinate Compression also currently takes **O(n²)** due to its implementation.
 <hr/>
 
 ##### Complex mode (O(nlog(n))) --complex
+
+The algorithm first assigns an index to each element using Coordinate Compression. Each element receives an index based on its relative position in the sorted order, allowing the algorithm to work with indices instead of the original values.
+
+It then divides the current segment into three groups using two partition boundaries:
+- MIN: the lowest 42% of the segment.
+- MIDDLE: the middle 16% of the segment.
+- MAX: the highest 42% of the segment.
+
+Elements are distributed between stacks *a* and *b* according to their group and current location. The algorithm uses rotations and push operations to organize each group in the appropriate stack position.
+
+Each group is then recursively processed using the same three-way partitioning strategy until its size becomes small enough to be handled by dedicated base-case sorting functions.
+
+The base cases handle segments containing up to two elements. Once a segment is sorted, its elements are moved back to stack *a* when necessary. The recursive process continues until all segments are sorted and combined, leaving stack *a* in ascending order.
+
+The partitioning process has an **O(n log n)** Push_swap operation complexity. Each recursion level processes all elements in its segments once, while the number of levels grows logarithmically as the segments become smaller.
+
+However, the complete implementation has additional execution overhead. Coordinate Compression currently takes O(n²), and the linked-list operations and operation logging also introduce extra processing time.
 <hr/>
 
 ##### Benchmark mode --bench
