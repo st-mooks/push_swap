@@ -6,7 +6,7 @@
 /*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 18:54:25 by kalnajja          #+#    #+#             */
-/*   Updated: 2026/11/19 13:40:23 by mbadarin         ###   ########.fr       */
+/*   Updated: 2026/11/19 13:59:48 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	push_back_to_a(t_stack **a, t_stack **b, t_ops **ops, int size)
 	max = size - 1;
 	while (*b)
 	{
-		bring_to_top_b(b, max, ops);
+		bring_to_top(b, max, ops);
 		pa(a, b, ops);
 		max--;
 	}

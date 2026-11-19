@@ -170,7 +170,7 @@ void		set_segment(t_segment *segment, int location,
 t_ops		*three_way_sort(t_stack **a);
 //medium
 int			get_pos(t_stack *s, int idx);
-void		bring_to_top_b(t_stack **b, int idx, t_ops **ops);
+void		bring_to_top(t_stack **b, int idx, t_ops **ops);
 int			get_chunk_size(int size);
 void		chunk_push_to_b(t_stack **a, t_stack **b, int chunk, t_ops **ops);
 void		push_back_to_a(t_stack **a, t_stack **b, t_ops **ops, int size);

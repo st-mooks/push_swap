@@ -6,7 +6,7 @@
 /*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 18:54:24 by kalnajja          #+#    #+#             */
-/*   Updated: 2026/11/19 13:51:50 by mbadarin         ###   ########.fr       */
+/*   Updated: 2026/11/19 13:59:50 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	sort_five(t_stack **a, t_ops **ops)
 	t_stack	*b;
 
 	b = NULL;
-	bring_to_top_b(a, 0, ops);
+	bring_to_top(a, 0, ops);
 	pb(a, &b, ops);
-	bring_to_top_b(a, 1, ops);
+	bring_to_top(a, 1, ops);
 	pb(a, &b, ops);
 	sort_three_a(a, ops);
 	pa(a, &b, ops);
@@ -43,7 +43,7 @@ int	get_pos(t_stack *stack, int idx)
 	return (-1);
 }
 
-void	bring_to_top_b(t_stack **b, int idx, t_ops **ops)
+void	bring_to_top(t_stack **b, int idx, t_ops **ops)
 {
 	int	pos;
 	int	size;
