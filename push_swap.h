@@ -175,6 +175,7 @@ int			get_chunk_size(int size);
 void		chunk_push_to_b(t_stack **a, t_stack **b, int chunk, t_ops **ops);
 void		push_back_to_a(t_stack **a, t_stack **b, t_ops **ops, int size);
 t_ops		*chunk_sort(t_stack **a);
+void		sort_five(t_stack **a, t_ops **ops);
 //utils_medium_complex.c
 void		assign_index(t_stack *stack);
 int			stack_size(t_stack *stack);

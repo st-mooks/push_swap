@@ -6,11 +6,25 @@
 /*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 18:54:24 by kalnajja          #+#    #+#             */
-/*   Updated: 2026/11/16 12:04:56 by mbadarin         ###   ########.fr       */
+/*   Updated: 2026/11/19 13:51:50 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+
+void	sort_five(t_stack **a, t_ops **ops)
+{
+	t_stack	*b;
+
+	b = NULL;
+	bring_to_top_b(a, 0, ops);
+	pb(a, &b, ops);
+	bring_to_top_b(a, 1, ops);
+	pb(a, &b, ops);
+	sort_three_a(a, ops);
+	pa(a, &b, ops);
+	pa(a, &b, ops);
+}
 
 int	get_pos(t_stack *stack, int idx)
 {
