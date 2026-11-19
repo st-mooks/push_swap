@@ -158,7 +158,8 @@ void		move_from_a(t_stack **a, t_stack **b, t_ops **ops, int destination);
 void		move_from_b(t_stack **a, t_stack **b, t_ops **ops, int destination);
 void		sort_three_a(t_stack **a, t_ops **ops);
 void		sort_three_b(t_stack **b, t_ops **ops);
-void		base_sort(t_stack **a, t_stack **b, t_ops **ops, t_segment *segment);
+void		base_sort(t_stack **a, t_stack **b, t_ops **ops,
+				t_segment *segment);
 void		process_element(t_stack **a, t_stack **b,
 				t_ops	**ops, t_segment *segment);
 void		set_boundaries(t_segment *segment);
@@ -174,7 +175,7 @@ int			get_chunk_size(int size);
 void		chunk_push_to_b(t_stack **a, t_stack **b, int chunk, t_ops **ops);
 void		push_back_to_a(t_stack **a, t_stack **b, t_ops **ops, int size);
 t_ops		*chunk_sort(t_stack **a);
-void		sort_five(t_stack **a, t_ops **ops);
+void		sort_five(t_stack **a, t_ops **ops, int size);
 //utils_medium_complex.c
 void		assign_index(t_stack *stack);
 int			stack_size(t_stack *stack);

@@ -6,21 +6,24 @@
 /*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 18:54:24 by kalnajja          #+#    #+#             */
-/*   Updated: 2026/11/19 13:59:50 by mbadarin         ###   ########.fr       */
+/*   Updated: 2026/11/19 14:54:17 by mbadarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	sort_five(t_stack **a, t_ops **ops)
+void	sort_five(t_stack **a, t_ops **ops, int size)
 {
 	t_stack	*b;
 
 	b = NULL;
 	bring_to_top(a, 0, ops);
 	pb(a, &b, ops);
-	bring_to_top(a, 1, ops);
-	pb(a, &b, ops);
+	if (size > 4)
+	{
+		bring_to_top(a, 1, ops);
+		pb(a, &b, ops);
+	}
 	sort_three_a(a, ops);
 	pa(a, &b, ops);
 	pa(a, &b, ops);
