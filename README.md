@@ -4,7 +4,7 @@
 
 ## A 42 Amman Porject
 
-### Tbale of contents
+### Table of contents
 1. [Description](#description)
 2. [Instructions](#instructions)
    1. [Makefile instructions](#makefile-instructions)

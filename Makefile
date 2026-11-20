@@ -15,51 +15,49 @@ BONUS_NAME:=		checker
 CC:= 				cc
 CFLAGS:=			-Wall -Werror -Wextra
 PUSH_SWAP_PATH:= 	.
-ALGORITHM_PATH:=	${PUSH_SWAP_PATH}/algorithm
-MEDIUM_PATH:=		${ALGORITHM_PATH}/medium
-COMPLEX_PATH:=		${ALGORITHM_PATH}/complex
-OPERATIONS_PATH:=	${PUSH_SWAP_PATH}/operations
-UTILS_PATH:=		${PUSH_SWAP_PATH}/utils
 LIBFT_PATH:=		${PUSH_SWAP_PATH}/libft
-BONUS_PATH:=		${PUSH_SWAP_PATH}/bonus
 MAIN:=				${PUSH_SWAP_PATH}/main.c
-SOURCES:=			${ALGORITHM_PATH}/simple.c\
-					${MEDIUM_PATH}/medium_push.c\
-					${MEDIUM_PATH}/medium_utils.c\
-					${MEDIUM_PATH}/medium.c\
-					${COMPLEX_PATH}/3way_base.c\
-					${COMPLEX_PATH}/3way_helpers.c\
-					${COMPLEX_PATH}/3way_solve.c\
-					${COMPLEX_PATH}/3way_utils.c\
-					${OPERATIONS_PATH}/a_ops.c\
-					${OPERATIONS_PATH}/b_ops.c\
-					${OPERATIONS_PATH}/ab_ops.c\
-					${OPERATIONS_PATH}/push_swap.c\
-					${OPERATIONS_PATH}/rotate.c\
-					${UTILS_PATH}/disorder.c\
-					${UTILS_PATH}/input_parsing.c\
-					${UTILS_PATH}/list_functions.c\
-					${UTILS_PATH}/ops_utils.c\
-					${UTILS_PATH}/print_utils.c\
-					${UTILS_PATH}/split_input.c\
-					${UTILS_PATH}/utils_medium_complex.c\
-					${UTILS_PATH}/validation.c
-BONUS_MAIN:=		${BONUS_PATH}/main.c
-BONUS_SOURCES:=		${BONUS_PATH}/utils.c
+SOURCES:=			${PUSH_SWAP_PATH}/simple.c\
+					${PUSH_SWAP_PATH}/medium_push.c\
+					${PUSH_SWAP_PATH}/medium_utils.c\
+					${PUSH_SWAP_PATH}/medium.c\
+					${PUSH_SWAP_PATH}/3way_base.c\
+					${PUSH_SWAP_PATH}/3way_helpers.c\
+					${PUSH_SWAP_PATH}/3way_solve.c\
+					${PUSH_SWAP_PATH}/3way_utils.c\
+					${PUSH_SWAP_PATH}/a_ops.c\
+					${PUSH_SWAP_PATH}/b_ops.c\
+					${PUSH_SWAP_PATH}/ab_ops.c\
+					${PUSH_SWAP_PATH}/push_swap.c\
+					${PUSH_SWAP_PATH}/rotate.c\
+					${PUSH_SWAP_PATH}/disorder.c\
+					${PUSH_SWAP_PATH}/input_parsing.c\
+					${PUSH_SWAP_PATH}/list_functions.c\
+					${PUSH_SWAP_PATH}/ops_utils.c\
+					${PUSH_SWAP_PATH}/print_utils.c\
+					${PUSH_SWAP_PATH}/split_input.c\
+					${PUSH_SWAP_PATH}/utils_medium_complex.c\
+					${PUSH_SWAP_PATH}/validation.c
+BONUS_MAIN:=		${PUSH_SWAP_PATH}/main.c
+BONUS_SOURCES:=		${PUSH_SWAP_PATH}/utils.c
 OBJECTS:=			${SOURCES:.c=.o}
 BONUS_OBJECTS:=		${BONUS_SOURCES:.c=.o}
 HEADER:=			push_swap.h
-BONUS_HEADER:=		${BONUS_PATH}\push_swap_bonus.h
+BONUS_HEADER:=		${PUSH_SWAP_PATH}/push_swap_bonus.h
+LIBFT:=				${LIBFT_PATH}/libft.a
 all: ${NAME}
-${NAME}: ${MAIN} ${OBJECTS} 
+${NAME}: ${MAIN} ${OBJECTS} ${LIBFT}
 	${CC} ${CFLAGS} $^ -L${LIBFT_PATH} -lft -o ${NAME}
+${LIBFT}:
+	make -C ${LIBFT_PATH}
 bonus: ${BONUS_MAIN} ${BONUS_OBJECTS} ${OBJECTS}
 	${CC} ${CFLAGS} $^ -L${LIBFT_PATH} -lft -o ${BONUS_NAME}
-%.c: %.o ${HEADER} ${BONUS_HEADER}
-	${CC} ${CFLAGS} $< -c $@
+%.o: %.c ${HEADER} ${BONUS_HEADER}
+	${CC} ${CFLAGS} $< -c -o $@
 clean:
+	make clean -C ${LIBFT_PATH}
 	rm -f ${OBJECTS} ${BONUS_OBJECTS}
 fclean: clean
-	rm -f ${NAME} ${BONUS_NAME}
+	rm -f ${NAME} ${BONUS_NAME} ${LIBFT_PATH}/libft.a
 re: fclean all
 .PHONY: all bonus clean fclean re

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "./push_swap.h"
 
 int	get_chunk_size(int size)
 {
@@ -31,7 +31,7 @@ t_ops	*chunk_sort(t_stack **a)
 	size = stack_size(*a);
 	if (size == 0)
 		return (ops);
-	if (size <= 3)
+	if (size == 3)
 	{
 		sort_three_a(a, &ops);
 		return (ops);

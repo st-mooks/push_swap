@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "./push_swap.h"
 
 int	destination_of(int location, int group)
 {

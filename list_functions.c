@@ -10,7 +10,7 @@
 /*																			  */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 t_stack	*stack_new(int n)
 {
@@ -27,7 +27,7 @@ t_stack	*stack_new(int n)
 
 t_stack	*stack_penultimate(t_stack *stack)
 {
-	if (!stack)
+	if (!stack || !stack->next)
 		return (NULL);
 	while (stack->next->next)
 		stack = stack->next;

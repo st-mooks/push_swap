@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "./push_swap.h"
 
 void	process_element(t_stack **a, t_stack **b,
 		t_ops **ops, t_segment *segment)

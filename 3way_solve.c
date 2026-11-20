@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "./push_swap.h"
 
 static void	solve_children(t_stack **a, t_stack **b,
 		t_ops **ops, t_segment *segment)
@@ -69,7 +69,7 @@ t_ops	*three_way_sort(t_stack **a)
 	b = NULL;
 	assign_index(*a);
 	size = stack_size(*a);
-	if (size <= 3)
+	if (size == 3)
 	{
 		sort_three_a(a, &ops);
 		return (ops);

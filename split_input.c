@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 int	count_args(char *args[])
 {
@@ -48,7 +48,10 @@ void	fill_str(char **str, char *argv[])
 	ssize_t	j;
 
 	if (!argv || !*argv)
+	{
+		**str = '\0';
 		return ;
+	}
 	i = ft_strlen(*argv);
 	j = 0;
 	while (*argv)
@@ -67,11 +70,15 @@ void	fill_str(char **str, char *argv[])
 size_t	get_args_len(char *argv[])
 {
 	size_t	len;
+	size_t	len_single_arg;
 
 	len = 0;
 	while (*argv)
 	{
-		len += ft_strlen(*argv);
+		len_single_arg = ft_strlen(*argv);
+		if (len_single_arg == 0)
+			raise_error();
+		len += len_single_arg;
 		argv += 1;
 	}
 	return (len);
@@ -85,7 +92,9 @@ int	split_args(char **argv[])
 
 	*argv += 1;
 	len = get_args_len(*argv);
-	str = malloc(len * 2 * sizeof(char));
+	if (len == 0)
+		len = 1;
+	str = malloc(len * 2 * sizeof(char) + 1);
 	if (!str)
 		raise_error();
 	fill_str(&str, *argv);

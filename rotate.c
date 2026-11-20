@@ -10,14 +10,14 @@
 /*																			  */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*last;
 	t_stack	*penultimate;
 
-	if (!stack || !*stack)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	last = stack_last(*stack);
 	penultimate = stack_penultimate(*stack);

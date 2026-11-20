@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
-# include "../push_swap.h"
+# include "./push_swap.h"
 
 //utils.c
 void	apply_op(char *op, t_stack **a, t_stack **b, t_ops **ops);

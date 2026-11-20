@@ -10,7 +10,7 @@
 /*																			  */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "./push_swap_bonus.h"
 
 void	apply_op(char *op, t_stack **a, t_stack **b, t_ops **ops)
 {
