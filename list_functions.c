@@ -84,13 +84,13 @@ t_stack	*stack_init(int argc, char *argv[], int mode, int bench_output)
 		if (!validate_int(argv[i]))
 		{
 			free_all(stack, NULL);
-			raise_error();
+			return (NULL);
 		}
 		value = ft_atoi(argv[i--]);
 		if (!check_duplicate(value, stack))
 		{
 			free_all(stack, NULL);
-			raise_error();
+			return (NULL);
 		}
 		push(&stack, value);
 	}

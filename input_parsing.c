@@ -24,7 +24,7 @@ int	get_bench_output(char *argv[])
 
 int	get_input_stack_len(int argc, int mode, int bench_output)
 {
-	if (bench_output == 1)
+	if (bench_output)
 		argc--;
 	if (mode)
 		argc--;

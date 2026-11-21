@@ -4,29 +4,6 @@
 
 ## A 42 Amman Porject
 
-### Table of contents
-1. [Description](#description)
-2. [Instructions](#instructions)
-   1. [Makefile instructions](#makefile-instructions)
-   2. [Programme use](#programme-use)
-      1. [Valid strategy flags](#valid-strategy-flags)
-      2. [Benchmark flag](#benchmark-flag)
-      3. [Input stack rules](#input-stack-rules)
-3. [Resources](#resources)
-   - [Use of AI](#use-of-ai)
-4. [Detailed description](#detailed-description)
-   1. [Disorder](#disorder)
-   2. [Modes](#modes)
-      1. [Adaptive mode](#adaptive-mode---adaptive-default)
-      2. [Simple](#simple-mode-on---simple)
-      3. [Medium mode](#medium-mode-onn---medium)
-      4. [Complex mode](#complex-mode-onlogn---complex)
-      5. [Benchmark mode](#benchmark-mode---bench)
-5. [Bonus (checker)](#bonus-checker)
-6. [Work division](#work-division)
-
-<hr/>
-
 ### Description
 
 A program that sorts a stack of integers utilising several algorithims based on a disroder metric.

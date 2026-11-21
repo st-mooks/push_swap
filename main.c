@@ -24,9 +24,14 @@ int	main(int argc, char *argv[])
 	mode = get_option(argc, argv);
 	bench_output = get_bench_output(argv);
 	a = stack_init(argc, argv, mode, bench_output);
+	if (!a)
+	{
+		free_arr(argv);
+		raise_error();
+	}
 	disorder = compute_disorder(a);
 	ops = get_ops(&a, mode, disorder);
-	if (bench_output)
+	if (bench_output == 1)
 		print_bench(*ops, mode, disorder);
 	print_ops(ops->ops_list);
 	free_all(a, ops);
