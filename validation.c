@@ -18,35 +18,28 @@ void	raise_error(void)
 	exit(EXIT_FAILURE);
 }
 
-size_t	digit_count(int i)
+int	validate_int(char *s)
 {
-	size_t	count;
+	long	n;
+	int		sign;
 
-	count = 0;
-	if (i <= 0)
-		count++;
-	while (i != 0)
+	n = 0;
+	sign = 1;
+	if (*s == '+' || *s == '-')
 	{
-		count++;
-		i /= 10;
+		if (*s == '-')
+			sign = -1;
+		s++;
 	}
-	return (count);
-}
-
-int	validate_int(char *value_str)
-{
-	int	i;
-
-	i = ft_atoi(value_str);
-	if (ft_strlen(value_str) != digit_count(i))
+	if (!ft_isdigit(*s))
 		return (0);
-	if (*value_str == '+' || *value_str == '-')
-		value_str += 1;
-	while (*value_str && ft_isdigit(*value_str))
-		value_str += 1;
-	if (*value_str)
-		return (0);
-	return (1);
+	while (ft_isdigit(*s))
+	{
+		n = n * 10 + (*s++ - '0');
+		if (n * sign > INT_MAX || n * sign < INT_MIN)
+			return (0);
+	}
+	return (*s == '\0');
 }
 
 int	check_duplicate(int value, t_stack *stack)

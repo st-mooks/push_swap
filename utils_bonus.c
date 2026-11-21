@@ -12,48 +12,47 @@
 
 #include "./push_swap_bonus.h"
 
+static int	is_op(char *op, char *name)
+{
+	size_t	len;
+
+	len = ft_strlen(name);
+	return (!ft_strncmp(op, name, len) && (op[len] == '\n' || !op[len]));
+}
+
 void	apply_op(char *op, t_stack **a, t_stack **b, t_ops **ops)
 {
-	if (!ft_strncmp(op, "sa", 2) || !ft_strncmp(op, "sa\n", 4))
+	if (is_op(op, "sa"))
 		sa(a, ops);
-	else if (!ft_strncmp(op, "sb", 3) || !ft_strncmp(op, "sb\n", 4))
+	else if (is_op(op, "sb"))
 		sb(b, ops);
-	else if (!ft_strncmp(op, "ss", 3) || !ft_strncmp(op, "ss\n", 4))
+	else if (is_op(op, "ss"))
 		ss(a, b, ops);
-	else if (!ft_strncmp(op, "pa", 3) || !ft_strncmp(op, "pa\n", 4))
+	else if (is_op(op, "pa"))
 		pa(a, b, ops);
-	else if (!ft_strncmp(op, "pb", 3) || !ft_strncmp(op, "pb\n", 4))
+	else if (is_op(op, "pb"))
 		pb(a, b, ops);
-	else if (!ft_strncmp(op, "ra", 3) || !ft_strncmp(op, "ra\n", 4))
+	else if (is_op(op, "ra"))
 		ra(a, ops);
-	else if (!ft_strncmp(op, "rb", 3) || !ft_strncmp(op, "rb\n", 4))
+	else if (is_op(op, "rb"))
 		rb(b, ops);
-	else if (!ft_strncmp(op, "rr", 3) || !ft_strncmp(op, "rr\n", 4))
+	else if (is_op(op, "rr"))
 		rr(a, b, ops);
-	else if (!ft_strncmp(op, "rra", 4) || !ft_strncmp(op, "rra\n", 5))
+	else if (is_op(op, "rra"))
 		rra(a, ops);
-	else if (!ft_strncmp(op, "rra", 4) || !ft_strncmp(op, "rrb\n", 5))
+	else if (is_op(op, "rrb"))
 		rrb(b, ops);
-	else if (!ft_strncmp(op, "rrb", 4) || !ft_strncmp(op, "rrr\n", 5))
+	else if (is_op(op, "rrr"))
 		rrr(a, b, ops);
 }
 
 void	check_op(char *op)
 {
 	if (!op
-		|| !ft_strncmp(op, "sa", 3) || !ft_strncmp(op, "sa\n", 4)
-		|| !ft_strncmp(op, "sb", 3) || !ft_strncmp(op, "sb\n", 4)
-		|| !ft_strncmp(op, "ss", 3) || !ft_strncmp(op, "ss\n", 4)
-		|| !ft_strncmp(op, "ra", 3) || !ft_strncmp(op, "ra\n", 4)
-		|| !ft_strncmp(op, "rb", 3) || !ft_strncmp(op, "rb\n", 4)
-		|| !ft_strncmp(op, "rr", 3) || !ft_strncmp(op, "rr\n", 4)
-		|| !ft_strncmp(op, "pa", 3) || !ft_strncmp(op, "pa\n", 4)
-		|| !ft_strncmp(op, "pb", 3) || !ft_strncmp(op, "pb\n", 4)
-		|| !ft_strncmp(op, "sb", 3) || !ft_strncmp(op, "sb\n", 4)
-		|| !ft_strncmp(op, "rra", 4) || !ft_strncmp(op, "rra\n", 5)
-		|| !ft_strncmp(op, "rrb", 4) || !ft_strncmp(op, "rrb\n", 5)
-		|| !ft_strncmp(op, "rrr", 4) || !ft_strncmp(op, "rrr\n", 5)
-	)
+		|| is_op(op, "sa") || is_op(op, "sb") || is_op(op, "ss")
+		|| is_op(op, "pa") || is_op(op, "pb")
+		|| is_op(op, "ra") || is_op(op, "rb") || is_op(op, "rr")
+		|| is_op(op, "rra") || is_op(op, "rrb") || is_op(op, "rrr"))
 		return ;
 	raise_error();
 }

@@ -52,12 +52,16 @@ void	print_ops_bench(t_ops ops)
 void	print_bench(t_ops ops, int mode, double disorder)
 {
 	char	*strategy;
+	int		pct;
 
 	strategy = get_strategy(mode, disorder);
+	pct = (int)(disorder * 10000 + 0.5);
 	ft_putstr_fd("[bench] disorder:\t", 2);
-	ft_putnbr_fd((int)(disorder * 100), 2);
+	ft_putnbr_fd(pct / 100, 2);
 	ft_putchar_fd('.', 2);
-	ft_putnbr_fd((int)(disorder * 10000) % 100, 2);
+	if (pct % 100 < 10)
+		ft_putchar_fd('0', 2);
+	ft_putnbr_fd(pct % 100, 2);
 	ft_putstr_fd("%\n[bench] strategy:\t", 2);
 	ft_putstr_fd(strategy, 2);
 	ft_putstr_fd("\n[bench] total_ops:\t", 2);
@@ -83,6 +87,8 @@ char	*get_strategy(int mode, double disorder)
 	char	*strategy;
 
 	strategy = get_option_str(mode);
+	if (mode == 4)
+		mode = 0;
 	if (mode == 1 || (!mode && disorder < 0.2))
 		strategy = ft_strjoin(strategy, "O(n2)");
 	else if (mode == 2 || (!mode && 0.2 <= disorder && disorder < 0.5))

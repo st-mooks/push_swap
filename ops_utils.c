@@ -32,6 +32,7 @@ t_ops	*init_ops(void)
 	if (!ops)
 		return (NULL);
 	ops->ops_list = init_ops_list(NULL);
+	ops->tail = ops->ops_list;
 	ops->sa_count = 0;
 	ops->sb_count = 0;
 	ops->ss_count = 0;
@@ -50,7 +51,6 @@ t_ops	*init_ops(void)
 void	add_op_to_list(t_ops **ops, char *op_name)
 {
 	t_ops_list	*new_op;
-	t_ops_list	*last;
 
 	if (!ops)
 		return ;
@@ -60,16 +60,18 @@ void	add_op_to_list(t_ops **ops, char *op_name)
 		return ;
 	}
 	new_op = init_ops_list(op_name);
-	last = ((*ops)->ops_list);
-	while (last->next)
-		last = last->next;
-	last->next = new_op;
+	if (!new_op)
+		return ;
+	(*ops)->tail->next = new_op;
+	(*ops)->tail = new_op;
 }
 
 t_ops	*get_ops(t_stack **a, int mode, double disorder)
 {
 	t_ops	*ops;
 
+	if (mode == 4)
+		mode = 0;
 	if (disorder == 0)
 	{
 		ops = init_ops();

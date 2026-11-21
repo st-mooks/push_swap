@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   medium_utils.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 18:54:24 by kalnajja          #+#    #+#             */
-/*   Updated: 2026/11/19 14:54:17 by mbadarin         ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   medium_utils.c                                    :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: kalnajja <kalnajja@student.42amman.com>   #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/11/13 18:54:24 by kalnajja         #+#    #+#              */
+/*   Updated: 2026/11/21 14:29:22 by kalnajja        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,17 @@ void	sort_five(t_stack **a, t_ops **ops, int size)
 	t_stack	*b;
 
 	b = NULL;
-	bring_to_top(a, 0, ops);
+	if (size == 2)
+	{
+		if ((*a)->index > (*a)->next->index)
+			sa(a, ops);
+		return ;
+	}
+	bring_to_top_a(a, 0, ops);
 	pb(a, &b, ops);
 	if (size > 4)
 	{
-		bring_to_top(a, 1, ops);
+		bring_to_top_a(a, 1, ops);
 		pb(a, &b, ops);
 	}
 	sort_three_a(a, ops);
@@ -71,5 +77,27 @@ void	bring_to_top(t_stack **b, int idx, t_ops **ops)
 			rrb(b, ops);
 			pos--;
 		}
+	}
+}
+
+void	bring_to_top_a(t_stack **a, int idx, t_ops **ops)
+{
+	int	pos;
+	int	size;
+
+	pos = get_pos(*a, idx);
+	size = stack_size(*a);
+	if (pos == -1)
+		return ;
+	if (pos <= size / 2)
+	{
+		while (pos-- > 0)
+			ra(a, ops);
+	}
+	else
+	{
+		pos = size - pos;
+		while (pos-- > 0)
+			rra(a, ops);
 	}
 }

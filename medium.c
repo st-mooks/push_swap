@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   medium.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 18:54:20 by kalnajja          #+#    #+#             */
-/*   Updated: 2026/11/19 14:57:08 by mbadarin         ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   medium.c                                          :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: kalnajja <kalnajja@student.42amman.com>   #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/11/13 18:54:20 by kalnajja         #+#    #+#              */
+/*   Updated: 2026/11/21 14:30:10 by kalnajja        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_ops	*chunk_sort(t_stack **a)
 	ops = init_ops();
 	assign_index(*a);
 	size = stack_size(*a);
-	if (size == 0)
+	if (size < 2)
 		return (ops);
 	if (size == 3)
 	{

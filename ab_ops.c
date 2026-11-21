@@ -14,8 +14,8 @@
 
 void	ss(t_stack **a, t_stack **b, t_ops **ops)
 {
-	sa(a, ops);
-	sb(b, ops);
+	swap(a);
+	swap(b);
 	add_op_to_list(ops, "ss");
 	(*ops)->ss_count += 1;
 	(*ops)->total += 1;

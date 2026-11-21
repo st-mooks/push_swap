@@ -38,8 +38,8 @@ SOURCES:=			${PUSH_SWAP_PATH}/simple.c\
 					${PUSH_SWAP_PATH}/split_input.c\
 					${PUSH_SWAP_PATH}/utils_medium_complex.c\
 					${PUSH_SWAP_PATH}/validation.c
-BONUS_MAIN:=		${PUSH_SWAP_PATH}/main.c
-BONUS_SOURCES:=		${PUSH_SWAP_PATH}/utils.c
+BONUS_MAIN:=     	${PUSH_SWAP_PATH}/main_bonus.c
+BONUS_SOURCES:=  	${PUSH_SWAP_PATH}/utils_bonus.c
 OBJECTS:=			${SOURCES:.c=.o}
 BONUS_OBJECTS:=		${BONUS_SOURCES:.c=.o}
 HEADER:=			push_swap.h
@@ -50,7 +50,7 @@ ${NAME}: ${MAIN} ${OBJECTS} ${LIBFT}
 	${CC} ${CFLAGS} $^ -L${LIBFT_PATH} -lft -o ${NAME}
 ${LIBFT}:
 	make -C ${LIBFT_PATH}
-bonus: ${BONUS_MAIN} ${BONUS_OBJECTS} ${OBJECTS}
+bonus: ${BONUS_MAIN} ${BONUS_OBJECTS} ${OBJECTS} ${LIBFT}
 	${CC} ${CFLAGS} $^ -L${LIBFT_PATH} -lft -o ${BONUS_NAME}
 %.o: %.c ${HEADER} ${BONUS_HEADER}
 	${CC} ${CFLAGS} $< -c -o $@

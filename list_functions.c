@@ -81,9 +81,13 @@ t_stack	*stack_init(int argc, char *argv[], int mode, int bench_output)
 	stack = NULL;
 	while (i >= argc - len)
 	{
-		value = ft_atoi(argv[i]);
-		if (!validate_int(argv[i--])
-			|| !check_duplicate(value, stack))
+		if (!validate_int(argv[i]))
+		{
+			free_all(stack, NULL);
+			raise_error();
+		}
+		value = ft_atoi(argv[i--]);
+		if (!check_duplicate(value, stack))
 		{
 			free_all(stack, NULL);
 			raise_error();
