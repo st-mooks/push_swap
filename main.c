@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 	mode = get_option(argc, argv);
 	bench_output = get_bench_output(argv);
 	a = stack_init(argc, argv, mode, bench_output);
-	if (!a)
+	if (!a && argc)
 	{
 		free_arr(argv);
 		raise_error();
