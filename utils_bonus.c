@@ -46,13 +46,21 @@ void	apply_op(char *op, t_stack **a, t_stack **b, t_ops **ops)
 		rrr(a, b, ops);
 }
 
-void	check_op(char *op)
+int	check_op(char *op)
 {
 	if (!op
 		|| is_op(op, "sa") || is_op(op, "sb") || is_op(op, "ss")
 		|| is_op(op, "pa") || is_op(op, "pb")
 		|| is_op(op, "ra") || is_op(op, "rb") || is_op(op, "rr")
 		|| is_op(op, "rra") || is_op(op, "rrb") || is_op(op, "rrr"))
-		return ;
+		return (1);
+	free(op);
+	return (0);
+}
+
+void    raise_error_bonus(char *argv[], t_stack *a, t_ops *ops)
+{
+	free_all(a, ops);
+	free_arr(argv);
 	raise_error();
 }

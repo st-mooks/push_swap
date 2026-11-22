@@ -20,23 +20,28 @@ int	main(int argc, char *argv[])
 	char	*op;
 
 	argc = split_args(&argv);
-	a = stack_init(argc, argv, get_option(argc, argv), get_bench_output(argv));
-	if (!a)
-		return (0);
-	b = NULL;
+	
 	ops = init_ops();
 	op = get_next_line(0);
-	check_op(op);
+	a = stack_init(argc, argv, get_option(argc, argv), get_bench_output(argv));
+	if (!a)
+		raise_error_bonus(argv, a, ops);
+	b = NULL;
+	if (!check_op(op))
+		raise_error_bonus(argv, a, ops);
 	while (op)
 	{
 		apply_op(op, &a, &b, &ops);
 		free(op);
 		op = get_next_line(0);
-		check_op(op);
+		if (!check_op(op))
+			raise_error_bonus(argv, a, ops);
 	}
 	if (!compute_disorder(a) && !b)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+	free_all(a, ops);
+	free_arr(argv);
 	return (0);
 }

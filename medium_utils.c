@@ -25,13 +25,14 @@ void	sort_five(t_stack **a, t_ops **ops, int size)
 	}
 	bring_to_top_a(a, 0, ops);
 	pb(a, &b, ops);
-	if (size > 4)
+	if (size != 4)
 	{
 		bring_to_top_a(a, 1, ops);
 		pb(a, &b, ops);
 	}
 	sort_three_a(a, ops);
-	pa(a, &b, ops);
+	if (size != 4)
+		pa(a, &b, ops);
 	pa(a, &b, ops);
 }
 

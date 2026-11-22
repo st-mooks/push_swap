@@ -17,5 +17,6 @@
 
 //utils.c
 void	apply_op(char *op, t_stack **a, t_stack **b, t_ops **ops);
-void	check_op(char *op);
+int 	check_op(char *op);
+void    raise_error_bonus(char *argv[], t_stack *a, t_ops *ops);
 #endif
