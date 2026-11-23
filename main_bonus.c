@@ -17,31 +17,22 @@ int	main(int argc, char *argv[])
 	t_stack	*a;
 	t_stack	*b;
 	t_ops	*ops;
-	char	*op;
 
+	if (argc == 1)
+		return (0);
 	argc = split_args(&argv);
-	
 	ops = init_ops();
-	op = get_next_line(0);
 	a = stack_init(argc, argv, get_option(argc, argv), get_bench_output(argv));
 	if (!a)
-		raise_error_bonus(argv, a, ops);
+		raise_error_bonus(argv, &a, &ops);
 	b = NULL;
-	if (!check_op(op))
-		raise_error_bonus(argv, a, ops);
-	while (op)
-	{
-		apply_op(op, &a, &b, &ops);
-		free(op);
-		op = get_next_line(0);
-		if (!check_op(op))
-			raise_error_bonus(argv, a, ops);
-	}
+	parse_ops(argv, &a, &b, &ops);
 	if (!compute_disorder(a) && !b)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
 	free_all(a, ops);
+	free_all(b, NULL);
 	free_arr(argv);
 	return (0);
 }

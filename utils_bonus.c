@@ -58,9 +58,26 @@ int	check_op(char *op)
 	return (0);
 }
 
-void    raise_error_bonus(char *argv[], t_stack *a, t_ops *ops)
+void	raise_error_bonus(char *argv[], t_stack **a, t_ops **ops)
 {
-	free_all(a, ops);
+	free_all(*a, *ops);
 	free_arr(argv);
 	raise_error();
+}
+
+void	parse_ops(char *argv[], t_stack **a, t_stack **b, t_ops **ops)
+{
+	char	*op;
+
+	op = get_next_line(0);
+	if (!check_op(op))
+		raise_error_bonus(argv, a, ops);
+	while (op)
+	{
+		apply_op(op, a, b, ops);
+		free(op);
+		op = get_next_line(0);
+		if (!check_op(op))
+			raise_error_bonus(argv, a, ops);
+	}
 }

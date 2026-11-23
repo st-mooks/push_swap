@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mbadarin <mbadarin@student.42amman.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/11 13:53:28 by mbadarin          #+#    #+#             */
-/*   Updated: 2026/11/11 13:53:30 by mbadarin         ###   ########.fr       */
-/*                                                                            */
+/*																			  */
+/*														  :::	   ::::::::   */
+/*	 push_swap_bonus.h									:+:		 :+:	:+:   */
+/*													  +:+ +:+		  +:+	  */
+/*	 By: mbadarin <mbadarin@student.42amman.com>	+#+  +:+	   +#+		  */
+/*												  +#+#+#+#+#+	+#+			  */
+/*	 Created: 2026/11/11 13:53:28 by mbadarin		   #+#	  #+#			  */
+/*	 Updated: 2026/11/11 13:53:30 by mbadarin		  ###	########.fr		  */
+/*																			  */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
@@ -17,6 +17,7 @@
 
 //utils.c
 void	apply_op(char *op, t_stack **a, t_stack **b, t_ops **ops);
-int 	check_op(char *op);
-void    raise_error_bonus(char *argv[], t_stack *a, t_ops *ops);
+int		check_op(char *op);
+void	raise_error_bonus(char *argv[], t_stack **a, t_ops **ops);
+void	parse_ops(char *argv[], t_stack **a, t_stack **b, t_ops **ops);
 #endif

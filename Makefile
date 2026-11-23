@@ -47,11 +47,13 @@ BONUS_HEADER:=		${PUSH_SWAP_PATH}/push_swap_bonus.h
 LIBFT:=				${LIBFT_PATH}/libft.a
 all: ${NAME}
 ${NAME}: ${MAIN} ${OBJECTS} ${LIBFT}
-	${CC} ${CFLAGS} $^ -L${LIBFT_PATH} -lft -o ${NAME}
+	${CC} ${CFLAGS} $^ -L${LIBFT_PATH} -lft -o $@
 ${LIBFT}:
 	make -C ${LIBFT_PATH}
-bonus: ${BONUS_MAIN} ${BONUS_OBJECTS} ${OBJECTS} ${LIBFT}
-	${CC} ${CFLAGS} $^ -L${LIBFT_PATH} -lft -o ${BONUS_NAME}
+bonus: ${BONUS_NAME}
+
+${BONUS_NAME}: ${BONUS_MAIN} ${BONUS_OBJECTS} ${OBJECTS} ${LIBFT}
+	${CC} ${CFLAGS} $^ -L${LIBFT_PATH} -lft -o $@
 %.o: %.c ${HEADER} ${BONUS_HEADER}
 	${CC} ${CFLAGS} $< -c -o $@
 clean:
