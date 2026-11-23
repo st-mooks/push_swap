@@ -12,7 +12,7 @@
 
 #include "./push_swap.h"
 
-int	get_mistakes(int j, size_t size, t_stack *a, t_stack *temp)
+int	get_mistakes(size_t j, size_t size, t_stack *a, t_stack *temp)
 {
 	int	mistakes;
 

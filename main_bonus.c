@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 	ops = init_ops();
 	a = stack_init(argc, argv, get_option(argc, argv), get_bench_output(argv));
 	if (!a)
-		raise_error_bonus(argv, &a, &ops);
+		raise_error_bonus(argv, &a, NULL, &ops);
 	b = NULL;
 	parse_ops(argv, &a, &b, &ops);
 	if (!compute_disorder(a) && !b)

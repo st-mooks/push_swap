@@ -48,14 +48,11 @@ void	free_all(t_stack *a, t_ops *ops)
 	t_stack		*stack_next;
 	t_ops_list	*ops_next;
 
-	if (a)
+	while (a)
 	{
-		while (a)
-		{
-			stack_next = a->next;
-			free(a);
-			a = stack_next;
-		}
+		stack_next = a->next;
+		free(a);
+		a = stack_next;
 	}
 	if (ops)
 	{
