@@ -2,11 +2,11 @@
 
 # PUSH_SWAP
 
-## A 42 Amman Porject
+## A 42 Amman Project
 
 ### Description
 
-A program that sorts a stack of integers utilising several algorithims based on a disroder metric.
+A program that sorts a stack of integers utilising several algorithms based on a disorder metric.
 <hr/>
 
 ### Instructions
@@ -40,7 +40,7 @@ The syntax for running the program is as follows:
 ```
 ./push_swap [STRATEGY FLAG: optional] [BENCHMARK FLAG: optional] [INPUT STACK]
 ```
-The syntax for using the checker (bouns) is as follows:
+The syntax for using the checker (bonus) is as follows:
 ```
 ./checker [INPUT STACK] < [OPERATIONS]
 ```
@@ -56,9 +56,9 @@ The syntax for using the checker (bouns) is as follows:
 - "**--bench**": see details [below](#benchmark-mode---bench)
 
 ##### Input stack rules
-The input stack should be entered in a sequential manner and separated by a single white space, where the first element on the left dentoing the top of the stack. Valid input range is -2,147,483,648 (*INT_MIN*) to 2,147,483,647 (*INT_MAX*).
+The input stack should be entered in a sequential manner and separated by a single white space, where the first element on the left denoting the top of the stack. Valid input range is -2,147,483,648 (*INT_MIN*) to 2,147,483,647 (*INT_MAX*).
 
-Useage examples:
+Usage examples:
 ```
 #generates and prints a list of operations to sort the stack using the adaptive, disorder-based strategy
 #  4
@@ -120,11 +120,11 @@ Use of AI was limited to explaining the overall concepts, using a json file cont
         "Functions, recursion, and the call stack",
         "Control flow, loops, and conditions",
         "Data structures and algorithms",
-        "Undefined behavior, memory safety, and C language rules",
-        "Compilation, linking, and runtime behavior",
+        "Undefined behaviour, memory safety, and C language rules",
+        "Compilation, linking, and runtime behaviour",
         "Algorithmic complexity, correctness, and edge cases"
       ],
-      "accuracy": "Distinguish what the C language guarantees from implementation-dependent behavior and undefined behavior."
+      "accuracy": "Distinguish what the C language guarantees from implementation-dependent behaviour and undefined behaviour."
     },
     "progressive_hints": {
       "rule": "Start at the least revealing useful level; advance only as needed.",
@@ -139,16 +139,16 @@ Use of AI was limited to explaining the overall concepts, using a json file cont
     },
     "active_reasoning": [
       "Before explaining a mistake, ask me to predict what the code does and why when appropriate.",
-      "Challenge me to trace execution, track variables, draw memory layouts, identify invariants, inspect boundaries, construct counterexamples, test hypotheses, and explain behavior in my own words.",
+      "Challenge me to trace execution, track variables, draw memory layouts, identify invariants, inspect boundaries, construct counterexamples, test hypotheses, and explain behaviour in my own words.",
       "If my prediction is wrong, help me uncover the contradiction before providing the correction."
     ],
     "debugging_workflow": [
-      "Understand the intended behavior first.",
+      "Understand the intended behaviour first.",
       "Ask what I expected and what happened only if I have not already told you.",
       "Investigate my reasoning before diagnosing the code.",
       "Help isolate the bug systematically, using compiler warnings, debuggers, sanitizers, and small test cases when appropriate.",
       "Guide me toward identifying and fixing the bug myself; do not rewrite the entire program.",
-      "Clearly flag undefined behavior or serious memory-safety hazards without unnecessarily disclosing the complete fix.",
+      "Clearly flag undefined behaviour or serious memory-safety hazards without unnecessarily disclosing the complete fix.",
       "After the fix, have me explain the root cause and how to recognize a similar issue in the future."
     ],
     "follow_up_challenges": [
@@ -168,7 +168,7 @@ Use of AI was limited to explaining the overall concepts, using a json file cont
       "Break the problem into smaller components.",
       "Identify relevant concepts.",
       "Develop a possible approach.",
-      "Predict expected behavior.",
+      "Predict expected behaviour.",
       "Implement and test incrementally.",
       "Investigate unexpected results.",
       "Verify correctness and edge cases.",
@@ -187,7 +187,7 @@ Use of AI was limited to explaining the overall concepts, using a json file cont
       "options": [
         "Explain why my solution works.",
         "Explain why my original approach failed.",
-        "Predict behavior on a modified input.",
+        "Predict behaviour on a modified input.",
         "Identify a relevant edge case.",
         "Explain the underlying concept without looking at the code.",
         "Apply the idea to a small unfamiliar problem."
@@ -204,7 +204,7 @@ Use of AI was limited to explaining the overall concepts, using a json file cont
     "Show me the full solution": "Explicitly authorize a complete solution and explanation."
   },
   "guiding_principle": "Never rob me of the opportunity to think. Optimize for durable knowledge, intuition, debugging ability, and independent reasoning—not speed or assignment completion.",
-  "initial_behavior": "Enter C Programming Mentor Mode. Wait for my first C problem. When I send it, start with the most useful next question, mental exercise, or conceptual challenge instead of solving it."
+  "initial_behaviour": "Enter C Programming Mentor Mode. Wait for my first C problem. When I send it, start with the most useful next question, mental exercise, or conceptual challenge instead of solving it."
 }
 ```
 <hr/>
@@ -227,7 +227,7 @@ The stack's disorder is calculated based on the number of pairs and number of mi
 
 ##### Adaptive mode --adaptive (default)
 
-Based on calcualted disorder, simple, medium, or complex strategy is used to generate the sorting operations.
+Based on calculated disorder, simple, medium, or complex strategy is used to generate the sorting operations.
 
 | Disorder | Strategy |
 | -------- | -------- |
@@ -298,14 +298,14 @@ However, the complete implementation has additional execution overhead. Coordina
 
 ##### Benchmark mode --bench
 
-Displays the disorder as a percentage, the strategy used (including the comlexity expressed in BigO notation), the total number of operations performed, and the tally of operations used.
+Displays the disorder as a percentage, the strategy used (including the complexity expressed in BigO notation), the total number of operations performed, and the tally of operations used.
 
 By default, the benchmark output is directed towards stderr *(fd 2)*, but enabling the benchmark mode routes its towards stdout *(fd 1)* and suppresses the printing of the operations generated.
 <hr/>
 
 ### Bonus (checker)
 
-The bonus part consists of a checker program that takes as arguments the unordered stack and a set of operations separated by newlines through stdin *(fd 0)*. The program then displays "*OK*" if the stack is ordered after applying the operations, "*KO*" in case it is not, and "*ERROR*" in case it encounted an error.
+The bonus part consists of a checker program that takes as arguments the unordered stack and a set of operations separated by newlines through stdin *(fd 0)*. The program then displays "*OK*" if the stack is ordered after applying the operations, "*KO*" in case it is not, and "*ERROR*" in case it encountered an error.
 <hr/>
 
 ### Work division
@@ -313,7 +313,7 @@ The work was divided between the two students as follows:
 | Task | Handled By |
 | ---- | ---------- |
 | Infrastructure and basic operations behaviour | **mbadarin** |
-| Disroder logic | **kalnajja** |
+| Disorder logic | **kalnajja** |
 | Simple algorithm | **mbadarin** |
 | Medium algorithm | **kalnajja** |
 | Complex algorithm | **kalnajja** |
